@@ -13,10 +13,10 @@ import retrofit2.http.QueryMap
 
 interface ServiceLinkApi {
 
-  @POST('serviceLinks')
+  @POST('v2-beta/serviceLinks')
   Call<ServiceLink> create(@Body ServiceLink serviceLink)
 
-  @GET('serviceLinks/{id}')
+  @GET('v2-beta/serviceLinks/{id}')
   Call<ServiceLink> findById(@Path('id') String id)
 
 }

@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface ScalePolicyApi {
 
-  @GET('scalePolicys/{id}')
+  @GET('v2-beta/scalePolicys/{id}')
   Call<ScalePolicy> findById(@Path('id') String id)
 
 }

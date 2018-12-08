@@ -13,13 +13,13 @@ import retrofit2.http.QueryMap
 
 interface ServicesPortRangeApi {
 
-  @POST('servicesPortRanges')
+  @POST('v2-beta/servicesPortRanges')
   Call<ServicesPortRange> create(@Body ServicesPortRange servicesPortRange)
 
-  @GET('servicesPortRanges/{id}')
+  @GET('v2-beta/servicesPortRanges/{id}')
   Call<ServicesPortRange> findById(@Path('id') String id)
 
-  @PUT('servicesPortRanges/{id}')
+  @PUT('v2-beta/servicesPortRanges/{id}')
   Call<ServicesPortRange> update(@Path('id') String id, @Body ServicesPortRange servicesPortRange)
 
 }

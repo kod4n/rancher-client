@@ -12,16 +12,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface TaskApi {
-  @GET('tasks')
+  @GET('v2-beta/tasks')
   Call<TypeCollection<Task>> list()
 
-  @GET('tasks')
+  @GET('v2-beta/tasks')
   Call<TypeCollection<Task>> query(@QueryMap Map<String, String> filters)
 
-  @GET('tasks/{id}')
+  @GET('v2-beta/tasks/{id}')
   Call<Task> findById(@Path('id') String id)
 
-  @POST('tasks/{id}?action=execute')
+  @POST('v2-beta/tasks/{id}?action=execute')
   Call<Task> execute(@Path('id') String id)
 
 }

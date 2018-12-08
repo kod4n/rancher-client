@@ -12,13 +12,13 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ResourceDefinitionApi {
-  @GET('resourceDefinitions')
+  @GET('v2-beta/resourceDefinitions')
   Call<TypeCollection<ResourceDefinition>> list()
 
-  @GET('resourceDefinitions')
+  @GET('v2-beta/resourceDefinitions')
   Call<TypeCollection<ResourceDefinition>> query(@QueryMap Map<String, String> filters)
 
-  @GET('resourceDefinitions/{id}')
+  @GET('v2-beta/resourceDefinitions/{id}')
   Call<ResourceDefinition> findById(@Path('id') String id)
 
 }

@@ -12,25 +12,25 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface VolumeTemplateApi {
-  @GET('volumeTemplates')
+  @GET('v2-beta/volumeTemplates')
   Call<TypeCollection<VolumeTemplate>> list()
 
-  @GET('volumeTemplates')
+  @GET('v2-beta/volumeTemplates')
   Call<TypeCollection<VolumeTemplate>> query(@QueryMap Map<String, String> filters)
 
-  @GET('volumeTemplates/{id}')
+  @GET('v2-beta/volumeTemplates/{id}')
   Call<VolumeTemplate> findById(@Path('id') String id)
 
-  @POST('volumeTemplates/{id}?action=activate')
+  @POST('v2-beta/volumeTemplates/{id}?action=activate')
   Call<VolumeTemplate> activate(@Path('id') String id)
 
-  @POST('volumeTemplates/{id}?action=purge')
+  @POST('v2-beta/volumeTemplates/{id}?action=purge')
   Call<VolumeTemplate> purge(@Path('id') String id)
 
-  @POST('volumeTemplates/{id}?action=remove')
+  @POST('v2-beta/volumeTemplates/{id}?action=remove')
   Call<VolumeTemplate> remove(@Path('id') String id)
 
-  @POST('volumeTemplates/{id}?action=deactivate')
+  @POST('v2-beta/volumeTemplates/{id}?action=deactivate')
   Call<VolumeTemplate> deactivate(@Path('id') String id)
 
 }

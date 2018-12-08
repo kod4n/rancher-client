@@ -12,16 +12,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface HaConfigInputApi {
-  @GET('haConfigInputs')
+  @GET('v2-beta/haConfigInputs')
   Call<TypeCollection<HaConfigInput>> list()
 
-  @GET('haConfigInputs')
+  @GET('v2-beta/haConfigInputs')
   Call<TypeCollection<HaConfigInput>> query(@QueryMap Map<String, String> filters)
 
-  @POST('haConfigInputs')
+  @POST('v2-beta/haConfigInputs')
   Call<HaConfigInput> create(@Body HaConfigInput haConfigInput)
 
-  @GET('haConfigInputs/{id}')
+  @GET('v2-beta/haConfigInputs/{id}')
   Call<HaConfigInput> findById(@Path('id') String id)
 
 }

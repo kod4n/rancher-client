@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface RestartPolicyApi {
 
-  @GET('restartPolicys/{id}')
+  @GET('v2-beta/restartPolicys/{id}')
   Call<RestartPolicy> findById(@Path('id') String id)
 
 }

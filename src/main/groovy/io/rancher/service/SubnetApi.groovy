@@ -12,25 +12,25 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface SubnetApi {
-  @GET('subnets')
+  @GET('v2-beta/subnets')
   Call<TypeCollection<Subnet>> list()
 
-  @GET('subnets')
+  @GET('v2-beta/subnets')
   Call<TypeCollection<Subnet>> query(@QueryMap Map<String, String> filters)
 
-  @GET('subnets/{id}')
+  @GET('v2-beta/subnets/{id}')
   Call<Subnet> findById(@Path('id') String id)
 
-  @POST('subnets/{id}?action=activate')
+  @POST('v2-beta/subnets/{id}?action=activate')
   Call<Subnet> activate(@Path('id') String id)
 
-  @POST('subnets/{id}?action=purge')
+  @POST('v2-beta/subnets/{id}?action=purge')
   Call<Subnet> purge(@Path('id') String id)
 
-  @POST('subnets/{id}?action=remove')
+  @POST('v2-beta/subnets/{id}?action=remove')
   Call<Subnet> remove(@Path('id') String id)
 
-  @POST('subnets/{id}?action=deactivate')
+  @POST('v2-beta/subnets/{id}?action=deactivate')
   Call<Subnet> deactivate(@Path('id') String id)
 
 }

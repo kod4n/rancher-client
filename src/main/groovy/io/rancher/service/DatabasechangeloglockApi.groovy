@@ -12,16 +12,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface DatabasechangeloglockApi {
-  @GET('databasechangeloglocks')
+  @GET('v2-beta/databasechangeloglocks')
   Call<TypeCollection<Databasechangeloglock>> list()
 
-  @GET('databasechangeloglocks')
+  @GET('v2-beta/databasechangeloglocks')
   Call<TypeCollection<Databasechangeloglock>> query(@QueryMap Map<String, String> filters)
 
-  @GET('databasechangeloglocks/{id}')
+  @GET('v2-beta/databasechangeloglocks/{id}')
   Call<Databasechangeloglock> findById(@Path('id') String id)
 
-  @DELETE('databasechangeloglocks/{id}')
+  @DELETE('v2-beta/databasechangeloglocks/{id}')
   Call<Databasechangeloglock> delete(@Path('id') String id)
 
 }

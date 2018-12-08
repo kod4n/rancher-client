@@ -13,10 +13,10 @@ import retrofit2.http.QueryMap
 
 interface DigitaloceanConfigApi {
 
-  @POST('digitaloceanConfigs')
+  @POST('v2-beta/digitaloceanConfigs')
   Call<DigitaloceanConfig> create(@Body DigitaloceanConfig digitaloceanConfig)
 
-  @GET('digitaloceanConfigs/{id}')
+  @GET('v2-beta/digitaloceanConfigs/{id}')
   Call<DigitaloceanConfig> findById(@Path('id') String id)
 
 }

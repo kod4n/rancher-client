@@ -17,44 +17,44 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface StorageDriverServiceApi {
-  @GET('storageDriverServices')
+  @GET('v2-beta/storageDriverServices')
   Call<TypeCollection<StorageDriverService>> list()
 
-  @GET('storageDriverServices')
+  @GET('v2-beta/storageDriverServices')
   Call<TypeCollection<StorageDriverService>> query(@QueryMap Map<String, String> filters)
 
-  @GET('storageDriverServices/{id}')
+  @GET('v2-beta/storageDriverServices/{id}')
   Call<StorageDriverService> findById(@Path('id') String id)
 
-  @POST('storageDriverServices/{id}?action=rollback')
+  @POST('v2-beta/storageDriverServices/{id}?action=rollback')
   Call<Service> rollback(@Path('id') String id)
 
-  @POST('storageDriverServices/{id}?action=upgrade')
+  @POST('v2-beta/storageDriverServices/{id}?action=upgrade')
   Call<Service> upgrade(@Path('id') String id, @Body ServiceUpgrade serviceUpgrade)
-  @POST('storageDriverServices/{id}?action=restart')
+  @POST('v2-beta/storageDriverServices/{id}?action=restart')
   Call<Service> restart(@Path('id') String id, @Body ServiceRestart serviceRestart)
-  @POST('storageDriverServices/{id}?action=remove')
+  @POST('v2-beta/storageDriverServices/{id}?action=remove')
   Call<Service> remove(@Path('id') String id)
 
-  @POST('storageDriverServices/{id}?action=deactivate')
+  @POST('v2-beta/storageDriverServices/{id}?action=deactivate')
   Call<Service> deactivate(@Path('id') String id)
 
-  @POST('storageDriverServices/{id}?action=finishupgrade')
+  @POST('v2-beta/storageDriverServices/{id}?action=finishupgrade')
   Call<Service> finishupgrade(@Path('id') String id)
 
-  @POST('storageDriverServices/{id}?action=removeservicelink')
+  @POST('v2-beta/storageDriverServices/{id}?action=removeservicelink')
   Call<Service> removeservicelink(@Path('id') String id, @Body AddRemoveServiceLinkInput addRemoveServiceLinkInput)
-  @POST('storageDriverServices/{id}?action=continueupgrade')
+  @POST('v2-beta/storageDriverServices/{id}?action=continueupgrade')
   Call<Service> continueupgrade(@Path('id') String id)
 
-  @POST('storageDriverServices/{id}?action=activate')
+  @POST('v2-beta/storageDriverServices/{id}?action=activate')
   Call<Service> activate(@Path('id') String id)
 
-  @POST('storageDriverServices/{id}?action=addservicelink')
+  @POST('v2-beta/storageDriverServices/{id}?action=addservicelink')
   Call<Service> addservicelink(@Path('id') String id, @Body AddRemoveServiceLinkInput addRemoveServiceLinkInput)
-  @POST('storageDriverServices/{id}?action=cancelupgrade')
+  @POST('v2-beta/storageDriverServices/{id}?action=cancelupgrade')
   Call<Service> cancelupgrade(@Path('id') String id)
 
-  @POST('storageDriverServices/{id}?action=setservicelinks')
+  @POST('v2-beta/storageDriverServices/{id}?action=setservicelinks')
   Call<Service> setservicelinks(@Path('id') String id, @Body SetServiceLinksInput setServiceLinksInput)
 }

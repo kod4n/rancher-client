@@ -13,16 +13,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ExternalStoragePoolEventApi {
-  @GET('externalStoragePoolEvents')
+  @GET('v2-beta/externalStoragePoolEvents')
   Call<TypeCollection<ExternalStoragePoolEvent>> list()
 
-  @GET('externalStoragePoolEvents')
+  @GET('v2-beta/externalStoragePoolEvents')
   Call<TypeCollection<ExternalStoragePoolEvent>> query(@QueryMap Map<String, String> filters)
 
-  @GET('externalStoragePoolEvents/{id}')
+  @GET('v2-beta/externalStoragePoolEvents/{id}')
   Call<ExternalStoragePoolEvent> findById(@Path('id') String id)
 
-  @POST('externalStoragePoolEvents/{id}?action=remove')
+  @POST('v2-beta/externalStoragePoolEvents/{id}?action=remove')
   Call<ExternalEvent> remove(@Path('id') String id)
 
 }

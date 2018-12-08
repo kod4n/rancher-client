@@ -20,51 +20,51 @@ import retrofit2.http.QueryMap
 
 interface SecondaryLaunchConfigApi {
 
-  @POST('secondaryLaunchConfigs')
+  @POST('v2-beta/secondaryLaunchConfigs')
   Call<SecondaryLaunchConfig> create(@Body SecondaryLaunchConfig secondaryLaunchConfig)
 
-  @GET('secondaryLaunchConfigs/{id}')
+  @GET('v2-beta/secondaryLaunchConfigs/{id}')
   Call<SecondaryLaunchConfig> findById(@Path('id') String id)
 
-  @POST('secondaryLaunchConfigs/{id}?action=updateunhealthy')
+  @POST('v2-beta/secondaryLaunchConfigs/{id}?action=updateunhealthy')
   Call<Instance> updateunhealthy(@Path('id') String id)
 
-  @POST('secondaryLaunchConfigs/{id}?action=console')
+  @POST('v2-beta/secondaryLaunchConfigs/{id}?action=console')
   Call<InstanceConsole> console(@Path('id') String id, @Body InstanceConsoleInput instanceConsoleInput)
-  @POST('secondaryLaunchConfigs/{id}?action=restart')
+  @POST('v2-beta/secondaryLaunchConfigs/{id}?action=restart')
   Call<Instance> restart(@Path('id') String id)
 
-  @POST('secondaryLaunchConfigs/{id}?action=deallocate')
+  @POST('v2-beta/secondaryLaunchConfigs/{id}?action=deallocate')
   Call<Instance> deallocate(@Path('id') String id)
 
-  @POST('secondaryLaunchConfigs/{id}?action=start')
+  @POST('v2-beta/secondaryLaunchConfigs/{id}?action=start')
   Call<Instance> start(@Path('id') String id)
 
-  @POST('secondaryLaunchConfigs/{id}?action=updatereinitializing')
+  @POST('v2-beta/secondaryLaunchConfigs/{id}?action=updatereinitializing')
   Call<Instance> updatereinitializing(@Path('id') String id)
 
-  @POST('secondaryLaunchConfigs/{id}?action=purge')
+  @POST('v2-beta/secondaryLaunchConfigs/{id}?action=purge')
   Call<Instance> purge(@Path('id') String id)
 
-  @POST('secondaryLaunchConfigs/{id}?action=error')
+  @POST('v2-beta/secondaryLaunchConfigs/{id}?action=error')
   Call<Instance> error(@Path('id') String id)
 
-  @POST('secondaryLaunchConfigs/{id}?action=remove')
+  @POST('v2-beta/secondaryLaunchConfigs/{id}?action=remove')
   Call<Instance> remove(@Path('id') String id)
 
-  @POST('secondaryLaunchConfigs/{id}?action=stop')
+  @POST('v2-beta/secondaryLaunchConfigs/{id}?action=stop')
   Call<Instance> stop(@Path('id') String id, @Body InstanceStop instanceStop)
-  @POST('secondaryLaunchConfigs/{id}?action=allocate')
+  @POST('v2-beta/secondaryLaunchConfigs/{id}?action=allocate')
   Call<Instance> allocate(@Path('id') String id)
 
-  @POST('secondaryLaunchConfigs/{id}?action=updatehealthy')
+  @POST('v2-beta/secondaryLaunchConfigs/{id}?action=updatehealthy')
   Call<Instance> updatehealthy(@Path('id') String id)
 
-  @POST('secondaryLaunchConfigs/{id}?action=migrate')
+  @POST('v2-beta/secondaryLaunchConfigs/{id}?action=migrate')
   Call<Instance> migrate(@Path('id') String id)
 
-  @POST('secondaryLaunchConfigs/{id}?action=execute')
+  @POST('v2-beta/secondaryLaunchConfigs/{id}?action=execute')
   Call<HostAccess> execute(@Path('id') String id, @Body ContainerExec containerExec)
-  @POST('secondaryLaunchConfigs/{id}?action=proxy')
+  @POST('v2-beta/secondaryLaunchConfigs/{id}?action=proxy')
   Call<HostAccess> proxy(@Path('id') String id, @Body ContainerProxy containerProxy)
 }

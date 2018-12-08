@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface StatsAccessApi {
 
-  @GET('statsAccesses/{id}')
+  @GET('v2-beta/statsAccesses/{id}')
   Call<StatsAccess> findById(@Path('id') String id)
 
 }

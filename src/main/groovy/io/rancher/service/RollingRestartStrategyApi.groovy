@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface RollingRestartStrategyApi {
 
-  @GET('rollingRestartStrategys/{id}')
+  @GET('v2-beta/rollingRestartStrategys/{id}')
   Call<RollingRestartStrategy> findById(@Path('id') String id)
 
 }

@@ -12,25 +12,25 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ProjectTemplateApi {
-  @GET('projectTemplates')
+  @GET('v2-beta/projectTemplates')
   Call<TypeCollection<ProjectTemplate>> list()
 
-  @GET('projectTemplates')
+  @GET('v2-beta/projectTemplates')
   Call<TypeCollection<ProjectTemplate>> query(@QueryMap Map<String, String> filters)
 
-  @POST('projectTemplates')
+  @POST('v2-beta/projectTemplates')
   Call<ProjectTemplate> create(@Body ProjectTemplate projectTemplate)
 
-  @GET('projectTemplates/{id}')
+  @GET('v2-beta/projectTemplates/{id}')
   Call<ProjectTemplate> findById(@Path('id') String id)
 
-  @PUT('projectTemplates/{id}')
+  @PUT('v2-beta/projectTemplates/{id}')
   Call<ProjectTemplate> update(@Path('id') String id, @Body ProjectTemplate projectTemplate)
 
-  @DELETE('projectTemplates/{id}')
+  @DELETE('v2-beta/projectTemplates/{id}')
   Call<ProjectTemplate> delete(@Path('id') String id)
 
-  @POST('projectTemplates/{id}?action=remove')
+  @POST('v2-beta/projectTemplates/{id}?action=remove')
   Call<ProjectTemplate> remove(@Path('id') String id)
 
 }

@@ -12,34 +12,34 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface UserPreferenceApi {
-  @GET('userPreferences')
+  @GET('v2-beta/userPreferences')
   Call<TypeCollection<UserPreference>> list()
 
-  @GET('userPreferences')
+  @GET('v2-beta/userPreferences')
   Call<TypeCollection<UserPreference>> query(@QueryMap Map<String, String> filters)
 
-  @POST('userPreferences')
+  @POST('v2-beta/userPreferences')
   Call<UserPreference> create(@Body UserPreference userPreference)
 
-  @GET('userPreferences/{id}')
+  @GET('v2-beta/userPreferences/{id}')
   Call<UserPreference> findById(@Path('id') String id)
 
-  @PUT('userPreferences/{id}')
+  @PUT('v2-beta/userPreferences/{id}')
   Call<UserPreference> update(@Path('id') String id, @Body UserPreference userPreference)
 
-  @DELETE('userPreferences/{id}')
+  @DELETE('v2-beta/userPreferences/{id}')
   Call<UserPreference> delete(@Path('id') String id)
 
-  @POST('userPreferences/{id}?action=activate')
+  @POST('v2-beta/userPreferences/{id}?action=activate')
   Call<UserPreference> activate(@Path('id') String id)
 
-  @POST('userPreferences/{id}?action=purge')
+  @POST('v2-beta/userPreferences/{id}?action=purge')
   Call<UserPreference> purge(@Path('id') String id)
 
-  @POST('userPreferences/{id}?action=remove')
+  @POST('v2-beta/userPreferences/{id}?action=remove')
   Call<UserPreference> remove(@Path('id') String id)
 
-  @POST('userPreferences/{id}?action=deactivate')
+  @POST('v2-beta/userPreferences/{id}?action=deactivate')
   Call<UserPreference> deactivate(@Path('id') String id)
 
 }

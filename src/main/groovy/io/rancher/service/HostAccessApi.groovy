@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface HostAccessApi {
 
-  @GET('hostAccesses/{id}')
+  @GET('v2-beta/hostAccesses/{id}')
   Call<HostAccess> findById(@Path('id') String id)
 
 }

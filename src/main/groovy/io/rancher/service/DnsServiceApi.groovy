@@ -17,44 +17,44 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface DnsServiceApi {
-  @GET('dnsServices')
+  @GET('v2-beta/dnsServices')
   Call<TypeCollection<DnsService>> list()
 
-  @GET('dnsServices')
+  @GET('v2-beta/dnsServices')
   Call<TypeCollection<DnsService>> query(@QueryMap Map<String, String> filters)
 
-  @GET('dnsServices/{id}')
+  @GET('v2-beta/dnsServices/{id}')
   Call<DnsService> findById(@Path('id') String id)
 
-  @POST('dnsServices/{id}?action=rollback')
+  @POST('v2-beta/dnsServices/{id}?action=rollback')
   Call<Service> rollback(@Path('id') String id)
 
-  @POST('dnsServices/{id}?action=upgrade')
+  @POST('v2-beta/dnsServices/{id}?action=upgrade')
   Call<Service> upgrade(@Path('id') String id, @Body ServiceUpgrade serviceUpgrade)
-  @POST('dnsServices/{id}?action=restart')
+  @POST('v2-beta/dnsServices/{id}?action=restart')
   Call<Service> restart(@Path('id') String id, @Body ServiceRestart serviceRestart)
-  @POST('dnsServices/{id}?action=remove')
+  @POST('v2-beta/dnsServices/{id}?action=remove')
   Call<Service> remove(@Path('id') String id)
 
-  @POST('dnsServices/{id}?action=deactivate')
+  @POST('v2-beta/dnsServices/{id}?action=deactivate')
   Call<Service> deactivate(@Path('id') String id)
 
-  @POST('dnsServices/{id}?action=finishupgrade')
+  @POST('v2-beta/dnsServices/{id}?action=finishupgrade')
   Call<Service> finishupgrade(@Path('id') String id)
 
-  @POST('dnsServices/{id}?action=removeservicelink')
+  @POST('v2-beta/dnsServices/{id}?action=removeservicelink')
   Call<Service> removeservicelink(@Path('id') String id, @Body AddRemoveServiceLinkInput addRemoveServiceLinkInput)
-  @POST('dnsServices/{id}?action=continueupgrade')
+  @POST('v2-beta/dnsServices/{id}?action=continueupgrade')
   Call<Service> continueupgrade(@Path('id') String id)
 
-  @POST('dnsServices/{id}?action=activate')
+  @POST('v2-beta/dnsServices/{id}?action=activate')
   Call<Service> activate(@Path('id') String id)
 
-  @POST('dnsServices/{id}?action=addservicelink')
+  @POST('v2-beta/dnsServices/{id}?action=addservicelink')
   Call<Service> addservicelink(@Path('id') String id, @Body AddRemoveServiceLinkInput addRemoveServiceLinkInput)
-  @POST('dnsServices/{id}?action=cancelupgrade')
+  @POST('v2-beta/dnsServices/{id}?action=cancelupgrade')
   Call<Service> cancelupgrade(@Path('id') String id)
 
-  @POST('dnsServices/{id}?action=setservicelinks')
+  @POST('v2-beta/dnsServices/{id}?action=setservicelinks')
   Call<Service> setservicelinks(@Path('id') String id, @Body SetServiceLinksInput setServiceLinksInput)
 }

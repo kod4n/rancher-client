@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface ContainerExecApi {
 
-  @GET('containerExecs/{id}')
+  @GET('v2-beta/containerExecs/{id}')
   Call<ContainerExec> findById(@Path('id') String id)
 
 }

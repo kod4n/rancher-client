@@ -12,13 +12,13 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ClusterMembershipApi {
-  @GET('clusterMemberships')
+  @GET('v2-beta/clusterMemberships')
   Call<TypeCollection<ClusterMembership>> list()
 
-  @GET('clusterMemberships')
+  @GET('v2-beta/clusterMemberships')
   Call<TypeCollection<ClusterMembership>> query(@QueryMap Map<String, String> filters)
 
-  @GET('clusterMemberships/{id}')
+  @GET('v2-beta/clusterMemberships/{id}')
   Call<ClusterMembership> findById(@Path('id') String id)
 
 }

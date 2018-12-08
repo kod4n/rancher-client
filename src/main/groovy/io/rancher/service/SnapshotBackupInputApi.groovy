@@ -14,10 +14,10 @@ import retrofit2.http.QueryMap
 
 interface SnapshotBackupInputApi {
 
-  @GET('snapshotBackupInputs/{id}')
+  @GET('v2-beta/snapshotBackupInputs/{id}')
   Call<SnapshotBackupInput> findById(@Path('id') String id)
 
-  @POST('snapshotBackupInputs/{id}?action=remove')
+  @POST('v2-beta/snapshotBackupInputs/{id}?action=remove')
   Call<Backup> remove(@Path('id') String id)
 
 }

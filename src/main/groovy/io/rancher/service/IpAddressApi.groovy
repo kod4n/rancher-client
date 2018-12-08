@@ -12,31 +12,31 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface IpAddressApi {
-  @GET('ipAddresses')
+  @GET('v2-beta/ipAddresses')
   Call<TypeCollection<IpAddress>> list()
 
-  @GET('ipAddresses')
+  @GET('v2-beta/ipAddresses')
   Call<TypeCollection<IpAddress>> query(@QueryMap Map<String, String> filters)
 
-  @GET('ipAddresses/{id}')
+  @GET('v2-beta/ipAddresses/{id}')
   Call<IpAddress> findById(@Path('id') String id)
 
-  @POST('ipAddresses/{id}?action=activate')
+  @POST('v2-beta/ipAddresses/{id}?action=activate')
   Call<IpAddress> activate(@Path('id') String id)
 
-  @POST('ipAddresses/{id}?action=purge')
+  @POST('v2-beta/ipAddresses/{id}?action=purge')
   Call<IpAddress> purge(@Path('id') String id)
 
-  @POST('ipAddresses/{id}?action=remove')
+  @POST('v2-beta/ipAddresses/{id}?action=remove')
   Call<IpAddress> remove(@Path('id') String id)
 
-  @POST('ipAddresses/{id}?action=associate')
+  @POST('v2-beta/ipAddresses/{id}?action=associate')
   Call<IpAddress> associate(@Path('id') String id)
 
-  @POST('ipAddresses/{id}?action=deactivate')
+  @POST('v2-beta/ipAddresses/{id}?action=deactivate')
   Call<IpAddress> deactivate(@Path('id') String id)
 
-  @POST('ipAddresses/{id}?action=disassociate')
+  @POST('v2-beta/ipAddresses/{id}?action=disassociate')
   Call<IpAddress> disassociate(@Path('id') String id)
 
 }

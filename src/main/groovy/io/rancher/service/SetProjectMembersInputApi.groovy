@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface SetProjectMembersInputApi {
 
-  @GET('setProjectMembersInputs/{id}')
+  @GET('v2-beta/setProjectMembersInputs/{id}')
   Call<SetProjectMembersInput> findById(@Path('id') String id)
 
 }

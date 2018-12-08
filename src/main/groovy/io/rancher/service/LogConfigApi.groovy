@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface LogConfigApi {
 
-  @GET('logConfigs/{id}')
+  @GET('v2-beta/logConfigs/{id}')
   Call<LogConfig> findById(@Path('id') String id)
 
 }

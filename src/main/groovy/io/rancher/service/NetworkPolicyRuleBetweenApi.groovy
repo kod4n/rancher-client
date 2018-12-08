@@ -13,10 +13,10 @@ import retrofit2.http.QueryMap
 
 interface NetworkPolicyRuleBetweenApi {
 
-  @POST('networkPolicyRuleBetweens')
+  @POST('v2-beta/networkPolicyRuleBetweens')
   Call<NetworkPolicyRuleBetween> create(@Body NetworkPolicyRuleBetween networkPolicyRuleBetween)
 
-  @GET('networkPolicyRuleBetweens/{id}')
+  @GET('v2-beta/networkPolicyRuleBetweens/{id}')
   Call<NetworkPolicyRuleBetween> findById(@Path('id') String id)
 
 }

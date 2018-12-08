@@ -13,10 +13,10 @@ import retrofit2.http.QueryMap
 
 interface SecretReferenceApi {
 
-  @POST('secretReferences')
+  @POST('v2-beta/secretReferences')
   Call<SecretReference> create(@Body SecretReference secretReference)
 
-  @GET('secretReferences/{id}')
+  @GET('v2-beta/secretReferences/{id}')
   Call<SecretReference> findById(@Path('id') String id)
 
 }

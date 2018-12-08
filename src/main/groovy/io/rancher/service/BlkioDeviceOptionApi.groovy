@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface BlkioDeviceOptionApi {
 
-  @GET('blkioDeviceOptions/{id}')
+  @GET('v2-beta/blkioDeviceOptions/{id}')
   Call<BlkioDeviceOption> findById(@Path('id') String id)
 
 }

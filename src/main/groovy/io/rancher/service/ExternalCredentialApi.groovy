@@ -12,13 +12,13 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ExternalCredentialApi {
-  @GET('externalCredentials')
+  @GET('v2-beta/externalCredentials')
   Call<TypeCollection<ExternalCredential>> list()
 
-  @GET('externalCredentials')
+  @GET('v2-beta/externalCredentials')
   Call<TypeCollection<ExternalCredential>> query(@QueryMap Map<String, String> filters)
 
-  @GET('externalCredentials/{id}')
+  @GET('v2-beta/externalCredentials/{id}')
   Call<ExternalCredential> findById(@Path('id') String id)
 
 }

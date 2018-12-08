@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface AddOutputsInputApi {
 
-  @GET('addOutputsInputs/{id}')
+  @GET('v2-beta/addOutputsInputs/{id}')
   Call<AddOutputsInput> findById(@Path('id') String id)
 
 }

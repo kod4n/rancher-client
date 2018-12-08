@@ -12,16 +12,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface HostTemplateApi {
-  @GET('hostTemplates')
+  @GET('v2-beta/hostTemplates')
   Call<TypeCollection<HostTemplate>> list()
 
-  @GET('hostTemplates')
+  @GET('v2-beta/hostTemplates')
   Call<TypeCollection<HostTemplate>> query(@QueryMap Map<String, String> filters)
 
-  @GET('hostTemplates/{id}')
+  @GET('v2-beta/hostTemplates/{id}')
   Call<HostTemplate> findById(@Path('id') String id)
 
-  @POST('hostTemplates/{id}?action=remove')
+  @POST('v2-beta/hostTemplates/{id}?action=remove')
   Call<HostTemplate> remove(@Path('id') String id)
 
 }

@@ -13,10 +13,10 @@ import retrofit2.http.QueryMap
 
 interface ComposeConfigInputApi {
 
-  @POST('composeConfigInputs')
+  @POST('v2-beta/composeConfigInputs')
   Call<ComposeConfigInput> create(@Body ComposeConfigInput composeConfigInput)
 
-  @GET('composeConfigInputs/{id}')
+  @GET('v2-beta/composeConfigInputs/{id}')
   Call<ComposeConfigInput> findById(@Path('id') String id)
 
 }

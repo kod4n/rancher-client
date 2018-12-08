@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface ComposeConfigApi {
 
-  @GET('composeConfigs/{id}')
+  @GET('v2-beta/composeConfigs/{id}')
   Call<ComposeConfig> findById(@Path('id') String id)
 
 }

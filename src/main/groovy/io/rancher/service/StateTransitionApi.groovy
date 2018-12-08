@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface StateTransitionApi {
 
-  @GET('stateTransitions/{id}')
+  @GET('v2-beta/stateTransitions/{id}')
   Call<StateTransition> findById(@Path('id') String id)
 
 }

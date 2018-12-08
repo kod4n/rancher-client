@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface InstanceConsoleApi {
 
-  @GET('instanceConsoles/{id}')
+  @GET('v2-beta/instanceConsoles/{id}')
   Call<InstanceConsole> findById(@Path('id') String id)
 
 }

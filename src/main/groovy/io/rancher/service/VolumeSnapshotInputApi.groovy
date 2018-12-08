@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface VolumeSnapshotInputApi {
 
-  @GET('volumeSnapshotInputs/{id}')
+  @GET('v2-beta/volumeSnapshotInputs/{id}')
   Call<VolumeSnapshotInput> findById(@Path('id') String id)
 
 }

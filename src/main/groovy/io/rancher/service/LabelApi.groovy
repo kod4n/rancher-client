@@ -12,16 +12,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface LabelApi {
-  @GET('labels')
+  @GET('v2-beta/labels')
   Call<TypeCollection<Label>> list()
 
-  @GET('labels')
+  @GET('v2-beta/labels')
   Call<TypeCollection<Label>> query(@QueryMap Map<String, String> filters)
 
-  @GET('labels/{id}')
+  @GET('v2-beta/labels/{id}')
   Call<Label> findById(@Path('id') String id)
 
-  @POST('labels/{id}?action=remove')
+  @POST('v2-beta/labels/{id}?action=remove')
   Call<Label> remove(@Path('id') String id)
 
 }

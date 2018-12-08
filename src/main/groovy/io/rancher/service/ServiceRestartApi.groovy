@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface ServiceRestartApi {
 
-  @GET('serviceRestarts/{id}')
+  @GET('v2-beta/serviceRestarts/{id}')
   Call<ServiceRestart> findById(@Path('id') String id)
 
 }

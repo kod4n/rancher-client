@@ -12,16 +12,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface BackupApi {
-  @GET('backups')
+  @GET('v2-beta/backups')
   Call<TypeCollection<Backup>> list()
 
-  @GET('backups')
+  @GET('v2-beta/backups')
   Call<TypeCollection<Backup>> query(@QueryMap Map<String, String> filters)
 
-  @GET('backups/{id}')
+  @GET('v2-beta/backups/{id}')
   Call<Backup> findById(@Path('id') String id)
 
-  @POST('backups/{id}?action=remove')
+  @POST('v2-beta/backups/{id}?action=remove')
   Call<Backup> remove(@Path('id') String id)
 
 }

@@ -20,56 +20,56 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface VirtualMachineApi {
-  @GET('virtualMachines')
+  @GET('v2-beta/virtualMachines')
   Call<TypeCollection<VirtualMachine>> list()
 
-  @GET('virtualMachines')
+  @GET('v2-beta/virtualMachines')
   Call<TypeCollection<VirtualMachine>> query(@QueryMap Map<String, String> filters)
 
-  @GET('virtualMachines/{id}')
+  @GET('v2-beta/virtualMachines/{id}')
   Call<VirtualMachine> findById(@Path('id') String id)
 
-  @POST('virtualMachines/{id}?action=updateunhealthy')
+  @POST('v2-beta/virtualMachines/{id}?action=updateunhealthy')
   Call<Instance> updateunhealthy(@Path('id') String id)
 
-  @POST('virtualMachines/{id}?action=console')
+  @POST('v2-beta/virtualMachines/{id}?action=console')
   Call<InstanceConsole> console(@Path('id') String id, @Body InstanceConsoleInput instanceConsoleInput)
-  @POST('virtualMachines/{id}?action=restart')
+  @POST('v2-beta/virtualMachines/{id}?action=restart')
   Call<Instance> restart(@Path('id') String id)
 
-  @POST('virtualMachines/{id}?action=deallocate')
+  @POST('v2-beta/virtualMachines/{id}?action=deallocate')
   Call<Instance> deallocate(@Path('id') String id)
 
-  @POST('virtualMachines/{id}?action=start')
+  @POST('v2-beta/virtualMachines/{id}?action=start')
   Call<Instance> start(@Path('id') String id)
 
-  @POST('virtualMachines/{id}?action=updatereinitializing')
+  @POST('v2-beta/virtualMachines/{id}?action=updatereinitializing')
   Call<Instance> updatereinitializing(@Path('id') String id)
 
-  @POST('virtualMachines/{id}?action=purge')
+  @POST('v2-beta/virtualMachines/{id}?action=purge')
   Call<Instance> purge(@Path('id') String id)
 
-  @POST('virtualMachines/{id}?action=error')
+  @POST('v2-beta/virtualMachines/{id}?action=error')
   Call<Instance> error(@Path('id') String id)
 
-  @POST('virtualMachines/{id}?action=remove')
+  @POST('v2-beta/virtualMachines/{id}?action=remove')
   Call<Instance> remove(@Path('id') String id)
 
-  @POST('virtualMachines/{id}?action=stop')
+  @POST('v2-beta/virtualMachines/{id}?action=stop')
   Call<Instance> stop(@Path('id') String id, @Body InstanceStop instanceStop)
-  @POST('virtualMachines/{id}?action=allocate')
+  @POST('v2-beta/virtualMachines/{id}?action=allocate')
   Call<Instance> allocate(@Path('id') String id)
 
-  @POST('virtualMachines/{id}?action=updatehealthy')
+  @POST('v2-beta/virtualMachines/{id}?action=updatehealthy')
   Call<Instance> updatehealthy(@Path('id') String id)
 
-  @POST('virtualMachines/{id}?action=migrate')
+  @POST('v2-beta/virtualMachines/{id}?action=migrate')
   Call<Instance> migrate(@Path('id') String id)
 
-  @POST('virtualMachines/{id}?action=logs')
+  @POST('v2-beta/virtualMachines/{id}?action=logs')
   Call<HostAccess> logs(@Path('id') String id, @Body ContainerLogs containerLogs)
-  @POST('virtualMachines/{id}?action=execute')
+  @POST('v2-beta/virtualMachines/{id}?action=execute')
   Call<HostAccess> execute(@Path('id') String id, @Body ContainerExec containerExec)
-  @POST('virtualMachines/{id}?action=proxy')
+  @POST('v2-beta/virtualMachines/{id}?action=proxy')
   Call<HostAccess> proxy(@Path('id') String id, @Body ContainerProxy containerProxy)
 }

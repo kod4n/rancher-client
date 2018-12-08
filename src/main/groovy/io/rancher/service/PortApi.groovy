@@ -12,25 +12,25 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface PortApi {
-  @GET('ports')
+  @GET('v2-beta/ports')
   Call<TypeCollection<Port>> list()
 
-  @GET('ports')
+  @GET('v2-beta/ports')
   Call<TypeCollection<Port>> query(@QueryMap Map<String, String> filters)
 
-  @GET('ports/{id}')
+  @GET('v2-beta/ports/{id}')
   Call<Port> findById(@Path('id') String id)
 
-  @POST('ports/{id}?action=activate')
+  @POST('v2-beta/ports/{id}?action=activate')
   Call<Port> activate(@Path('id') String id)
 
-  @POST('ports/{id}?action=purge')
+  @POST('v2-beta/ports/{id}?action=purge')
   Call<Port> purge(@Path('id') String id)
 
-  @POST('ports/{id}?action=remove')
+  @POST('v2-beta/ports/{id}?action=remove')
   Call<Port> remove(@Path('id') String id)
 
-  @POST('ports/{id}?action=deactivate')
+  @POST('v2-beta/ports/{id}?action=deactivate')
   Call<Port> deactivate(@Path('id') String id)
 
 }

@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface ExtensionImplementationApi {
 
-  @GET('extensionImplementations/{id}')
+  @GET('v2-beta/extensionImplementations/{id}')
   Call<ExtensionImplementation> findById(@Path('id') String id)
 
 }

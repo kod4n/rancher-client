@@ -13,16 +13,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface HaConfigApi {
-  @GET('haConfigs')
+  @GET('v2-beta/haConfigs')
   Call<TypeCollection<HaConfig>> list()
 
-  @GET('haConfigs')
+  @GET('v2-beta/haConfigs')
   Call<TypeCollection<HaConfig>> query(@QueryMap Map<String, String> filters)
 
-  @GET('haConfigs/{id}')
+  @GET('v2-beta/haConfigs/{id}')
   Call<HaConfig> findById(@Path('id') String id)
 
-  @PUT('haConfigs/{id}')
+  @PUT('v2-beta/haConfigs/{id}')
   Call<HaConfig> update(@Path('id') String id, @Body HaConfig haConfig)
 
 }

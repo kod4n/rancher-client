@@ -12,25 +12,25 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface NetworkApi {
-  @GET('networks')
+  @GET('v2-beta/networks')
   Call<TypeCollection<Network>> list()
 
-  @GET('networks')
+  @GET('v2-beta/networks')
   Call<TypeCollection<Network>> query(@QueryMap Map<String, String> filters)
 
-  @GET('networks/{id}')
+  @GET('v2-beta/networks/{id}')
   Call<Network> findById(@Path('id') String id)
 
-  @POST('networks/{id}?action=activate')
+  @POST('v2-beta/networks/{id}?action=activate')
   Call<Network> activate(@Path('id') String id)
 
-  @POST('networks/{id}?action=purge')
+  @POST('v2-beta/networks/{id}?action=purge')
   Call<Network> purge(@Path('id') String id)
 
-  @POST('networks/{id}?action=remove')
+  @POST('v2-beta/networks/{id}?action=remove')
   Call<Network> remove(@Path('id') String id)
 
-  @POST('networks/{id}?action=deactivate')
+  @POST('v2-beta/networks/{id}?action=deactivate')
   Call<Network> deactivate(@Path('id') String id)
 
 }

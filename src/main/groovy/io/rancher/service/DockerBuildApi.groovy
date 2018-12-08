@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface DockerBuildApi {
 
-  @GET('dockerBuilds/{id}')
+  @GET('v2-beta/dockerBuilds/{id}')
   Call<DockerBuild> findById(@Path('id') String id)
 
 }

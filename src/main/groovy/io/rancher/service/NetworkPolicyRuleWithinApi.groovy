@@ -12,16 +12,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface NetworkPolicyRuleWithinApi {
-  @GET('networkPolicyRuleWithins')
+  @GET('v2-beta/networkPolicyRuleWithins')
   Call<TypeCollection<NetworkPolicyRuleWithin>> list()
 
-  @GET('networkPolicyRuleWithins')
+  @GET('v2-beta/networkPolicyRuleWithins')
   Call<TypeCollection<NetworkPolicyRuleWithin>> query(@QueryMap Map<String, String> filters)
 
-  @POST('networkPolicyRuleWithins')
+  @POST('v2-beta/networkPolicyRuleWithins')
   Call<NetworkPolicyRuleWithin> create(@Body NetworkPolicyRuleWithin networkPolicyRuleWithin)
 
-  @GET('networkPolicyRuleWithins/{id}')
+  @GET('v2-beta/networkPolicyRuleWithins/{id}')
   Call<NetworkPolicyRuleWithin> findById(@Path('id') String id)
 
 }

@@ -15,38 +15,38 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ExternalServiceApi {
-  @GET('externalServices')
+  @GET('v2-beta/externalServices')
   Call<TypeCollection<ExternalService>> list()
 
-  @GET('externalServices')
+  @GET('v2-beta/externalServices')
   Call<TypeCollection<ExternalService>> query(@QueryMap Map<String, String> filters)
 
-  @GET('externalServices/{id}')
+  @GET('v2-beta/externalServices/{id}')
   Call<ExternalService> findById(@Path('id') String id)
 
-  @POST('externalServices/{id}?action=rollback')
+  @POST('v2-beta/externalServices/{id}?action=rollback')
   Call<Service> rollback(@Path('id') String id)
 
-  @POST('externalServices/{id}?action=upgrade')
+  @POST('v2-beta/externalServices/{id}?action=upgrade')
   Call<Service> upgrade(@Path('id') String id, @Body ServiceUpgrade serviceUpgrade)
-  @POST('externalServices/{id}?action=restart')
+  @POST('v2-beta/externalServices/{id}?action=restart')
   Call<Service> restart(@Path('id') String id, @Body ServiceRestart serviceRestart)
-  @POST('externalServices/{id}?action=remove')
+  @POST('v2-beta/externalServices/{id}?action=remove')
   Call<Service> remove(@Path('id') String id)
 
-  @POST('externalServices/{id}?action=deactivate')
+  @POST('v2-beta/externalServices/{id}?action=deactivate')
   Call<Service> deactivate(@Path('id') String id)
 
-  @POST('externalServices/{id}?action=finishupgrade')
+  @POST('v2-beta/externalServices/{id}?action=finishupgrade')
   Call<Service> finishupgrade(@Path('id') String id)
 
-  @POST('externalServices/{id}?action=continueupgrade')
+  @POST('v2-beta/externalServices/{id}?action=continueupgrade')
   Call<Service> continueupgrade(@Path('id') String id)
 
-  @POST('externalServices/{id}?action=activate')
+  @POST('v2-beta/externalServices/{id}?action=activate')
   Call<Service> activate(@Path('id') String id)
 
-  @POST('externalServices/{id}?action=cancelupgrade')
+  @POST('v2-beta/externalServices/{id}?action=cancelupgrade')
   Call<Service> cancelupgrade(@Path('id') String id)
 
 }

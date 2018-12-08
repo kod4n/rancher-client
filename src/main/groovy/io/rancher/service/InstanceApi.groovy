@@ -15,50 +15,50 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface InstanceApi {
-  @GET('instances')
+  @GET('v2-beta/instances')
   Call<TypeCollection<Instance>> list()
 
-  @GET('instances')
+  @GET('v2-beta/instances')
   Call<TypeCollection<Instance>> query(@QueryMap Map<String, String> filters)
 
-  @GET('instances/{id}')
+  @GET('v2-beta/instances/{id}')
   Call<Instance> findById(@Path('id') String id)
 
-  @POST('instances/{id}?action=updateunhealthy')
+  @POST('v2-beta/instances/{id}?action=updateunhealthy')
   Call<Instance> updateunhealthy(@Path('id') String id)
 
-  @POST('instances/{id}?action=console')
+  @POST('v2-beta/instances/{id}?action=console')
   Call<InstanceConsole> console(@Path('id') String id, @Body InstanceConsoleInput instanceConsoleInput)
-  @POST('instances/{id}?action=restart')
+  @POST('v2-beta/instances/{id}?action=restart')
   Call<Instance> restart(@Path('id') String id)
 
-  @POST('instances/{id}?action=deallocate')
+  @POST('v2-beta/instances/{id}?action=deallocate')
   Call<Instance> deallocate(@Path('id') String id)
 
-  @POST('instances/{id}?action=start')
+  @POST('v2-beta/instances/{id}?action=start')
   Call<Instance> start(@Path('id') String id)
 
-  @POST('instances/{id}?action=updatereinitializing')
+  @POST('v2-beta/instances/{id}?action=updatereinitializing')
   Call<Instance> updatereinitializing(@Path('id') String id)
 
-  @POST('instances/{id}?action=purge')
+  @POST('v2-beta/instances/{id}?action=purge')
   Call<Instance> purge(@Path('id') String id)
 
-  @POST('instances/{id}?action=error')
+  @POST('v2-beta/instances/{id}?action=error')
   Call<Instance> error(@Path('id') String id)
 
-  @POST('instances/{id}?action=remove')
+  @POST('v2-beta/instances/{id}?action=remove')
   Call<Instance> remove(@Path('id') String id)
 
-  @POST('instances/{id}?action=stop')
+  @POST('v2-beta/instances/{id}?action=stop')
   Call<Instance> stop(@Path('id') String id, @Body InstanceStop instanceStop)
-  @POST('instances/{id}?action=allocate')
+  @POST('v2-beta/instances/{id}?action=allocate')
   Call<Instance> allocate(@Path('id') String id)
 
-  @POST('instances/{id}?action=updatehealthy')
+  @POST('v2-beta/instances/{id}?action=updatehealthy')
   Call<Instance> updatehealthy(@Path('id') String id)
 
-  @POST('instances/{id}?action=migrate')
+  @POST('v2-beta/instances/{id}?action=migrate')
   Call<Instance> migrate(@Path('id') String id)
 
 }

@@ -1,0 +1,374 @@
+{
+  "data": [
+    {
+      "actions": {},
+      "id": "apiVersion",
+      "links": {
+        "self": "https://console.ciscocrate.com/v1-catalog/schemas/apiVersion"
+      },
+      "pluralName": "apiVersions",
+      "resourceFields": {
+        "actions": {
+          "type": "map[string]"
+        },
+        "id": {
+          "type": "string"
+        },
+        "links": {
+          "type": "map[string]"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "resourceMethods": [
+        "GET"
+      ],
+      "type": "schema"
+    },
+    {
+      "actions": {},
+      "collectionMethods": [
+        "GET"
+      ],
+      "id": "schema",
+      "links": {
+        "collection": "https://console.ciscocrate.com/v1-catalog/schemas",
+        "self": "https://console.ciscocrate.com/v1-catalog/schemas/schema"
+      },
+      "pluralName": "schemas",
+      "resourceFields": {
+        "actions": {
+          "type": "map[string]"
+        },
+        "collectionActions": {
+          "type": "map[string]"
+        },
+        "collectionFields": {
+          "type": "map[string]"
+        },
+        "collectionFilters": {
+          "type": "map[string]"
+        },
+        "collectionMethods": {
+          "type": "array[string]"
+        },
+        "id": {
+          "type": "string"
+        },
+        "includeableLinks": {
+          "type": "array[string]"
+        },
+        "links": {
+          "type": "map[string]"
+        },
+        "pluralName": {
+          "type": "string"
+        },
+        "resourceActions": {
+          "type": "map[string]"
+        },
+        "resourceFields": {
+          "type": "map[string]"
+        },
+        "resourceMethods": {
+          "type": "array[string]"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "resourceMethods": [
+        "GET"
+      ],
+      "type": "schema"
+    },
+    {
+      "actions": {},
+      "collectionMethods": [
+        "GET"
+      ],
+      "id": "catalog",
+      "links": {
+        "collection": "https://console.ciscocrate.com/v1-catalog/catalogs",
+        "self": "https://console.ciscocrate.com/v1-catalog/schemas/catalog"
+      },
+      "pluralName": "catalogs",
+      "resourceFields": {
+        "actions": {
+          "type": "map[string]"
+        },
+        "branch": {
+          "type": "string"
+        },
+        "commit": {
+          "type": "string"
+        },
+        "environmentId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "links": {
+          "type": "map[string]"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "resourceMethods": [
+        "GET"
+      ],
+      "type": "schema"
+    },
+    {
+      "actions": {},
+      "collectionActions": {
+        "refresh": {}
+      },
+      "collectionMethods": [
+        "GET"
+      ],
+      "id": "template",
+      "links": {
+        "collection": "https://console.ciscocrate.com/v1-catalog/templates",
+        "self": "https://console.ciscocrate.com/v1-catalog/schemas/template"
+      },
+      "pluralName": "templates",
+      "resourceFields": {
+        "actions": {
+          "type": "map[string]"
+        },
+        "catalogId": {
+          "type": "string"
+        },
+        "categories": {
+          "type": "array[string]"
+        },
+        "category": {
+          "type": "string"
+        },
+        "defaultTemplateVersionId": {
+          "type": "string"
+        },
+        "defaultVersion": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "environmentId": {
+          "type": "string"
+        },
+        "folderName": {
+          "type": "string"
+        },
+        "iconFilename": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "isSystem": {
+          "type": "string"
+        },
+        "labels": {
+          "type": "map[string]"
+        },
+        "license": {
+          "type": "string"
+        },
+        "links": {
+          "type": "map[string]"
+        },
+        "maintainer": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "templateBase": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "upgradeFrom": {
+          "type": "string"
+        },
+        "versionLinks": {
+          "type": "map[string]"
+        },
+        "versions": {
+          "type": "array[string]"
+        }
+      },
+      "resourceMethods": [
+        "GET"
+      ],
+      "type": "schema"
+    },
+    {
+      "actions": {},
+      "id": "question",
+      "links": {
+        "self": "https://console.ciscocrate.com/v1-catalog/schemas/question"
+      },
+      "pluralName": "questions",
+      "resourceFields": {
+        "default": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        },
+        "invalidChars": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "max": {
+          "type": "int"
+        },
+        "maxLength": {
+          "type": "int"
+        },
+        "min": {
+          "type": "int"
+        },
+        "minLength": {
+          "type": "int"
+        },
+        "options": {
+          "type": "array[string]"
+        },
+        "required": {
+          "type": "bool"
+        },
+        "type": {
+          "type": "string"
+        },
+        "validChars": {
+          "type": "string"
+        },
+        "variable": {
+          "type": "string"
+        }
+      },
+      "resourceMethods": [
+        "GET"
+      ],
+      "type": "schema"
+    },
+    {
+      "actions": {},
+      "id": "templateVersion",
+      "links": {
+        "self": "https://console.ciscocrate.com/v1-catalog/schemas/templateVersion"
+      },
+      "pluralName": "templateVersions",
+      "resourceFields": {
+        "actions": {
+          "type": "map[string]"
+        },
+        "bindings": {
+          "type": "map[string]"
+        },
+        "files": {
+          "type": "map[string]"
+        },
+        "id": {
+          "type": "string"
+        },
+        "labels": {
+          "type": "map[string]"
+        },
+        "links": {
+          "type": "map[string]"
+        },
+        "maximumRancherVersion": {
+          "type": "string"
+        },
+        "minimumRancherVersion": {
+          "type": "string"
+        },
+        "questions": {
+          "type": "array[question]"
+        },
+        "templateId": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "upgradeFrom": {
+          "type": "string"
+        },
+        "upgradeVersionLinks": {
+          "type": "map[string]"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "resourceMethods": [
+        "GET"
+      ],
+      "type": "schema"
+    },
+    {
+      "actions": {},
+      "id": "error",
+      "links": {
+        "self": "https://console.ciscocrate.com/v1-catalog/schemas/error"
+      },
+      "pluralName": "errors",
+      "resourceFields": {
+        "actions": {
+          "type": "map[string]"
+        },
+        "id": {
+          "type": "string"
+        },
+        "links": {
+          "type": "map[string]"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "resourceMethods": [
+        "GET"
+      ],
+      "type": "schema"
+    }
+  ],
+  "links": {
+    "self": "https://console.ciscocrate.com/v1-catalog/schemas"
+  },
+  "resourceType": "schema",
+  "type": "collection"
+}

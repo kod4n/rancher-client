@@ -12,13 +12,13 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ConfigItemApi {
-  @GET('configItems')
+  @GET('v2-beta/configItems')
   Call<TypeCollection<ConfigItem>> list()
 
-  @GET('configItems')
+  @GET('v2-beta/configItems')
   Call<TypeCollection<ConfigItem>> query(@QueryMap Map<String, String> filters)
 
-  @GET('configItems/{id}')
+  @GET('v2-beta/configItems/{id}')
   Call<ConfigItem> findById(@Path('id') String id)
 
 }

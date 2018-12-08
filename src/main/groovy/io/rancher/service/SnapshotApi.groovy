@@ -14,18 +14,18 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface SnapshotApi {
-  @GET('snapshots')
+  @GET('v2-beta/snapshots')
   Call<TypeCollection<Snapshot>> list()
 
-  @GET('snapshots')
+  @GET('v2-beta/snapshots')
   Call<TypeCollection<Snapshot>> query(@QueryMap Map<String, String> filters)
 
-  @GET('snapshots/{id}')
+  @GET('v2-beta/snapshots/{id}')
   Call<Snapshot> findById(@Path('id') String id)
 
-  @POST('snapshots/{id}?action=backup')
+  @POST('v2-beta/snapshots/{id}?action=backup')
   Call<Backup> backup(@Path('id') String id, @Body SnapshotBackupInput snapshotBackupInput)
-  @POST('snapshots/{id}?action=remove')
+  @POST('v2-beta/snapshots/{id}?action=remove')
   Call<Snapshot> remove(@Path('id') String id)
 
 }

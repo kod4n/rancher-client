@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface TargetPortRuleApi {
 
-  @GET('targetPortRules/{id}')
+  @GET('v2-beta/targetPortRules/{id}')
   Call<TargetPortRule> findById(@Path('id') String id)
 
 }

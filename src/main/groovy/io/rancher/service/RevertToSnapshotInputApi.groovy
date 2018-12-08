@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface RevertToSnapshotInputApi {
 
-  @GET('revertToSnapshotInputs/{id}')
+  @GET('v2-beta/revertToSnapshotInputs/{id}')
   Call<RevertToSnapshotInput> findById(@Path('id') String id)
 
 }

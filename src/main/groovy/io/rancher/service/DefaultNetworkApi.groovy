@@ -14,19 +14,19 @@ import retrofit2.http.QueryMap
 
 interface DefaultNetworkApi {
 
-  @GET('defaultNetworks/{id}')
+  @GET('v2-beta/defaultNetworks/{id}')
   Call<DefaultNetwork> findById(@Path('id') String id)
 
-  @POST('defaultNetworks/{id}?action=activate')
+  @POST('v2-beta/defaultNetworks/{id}?action=activate')
   Call<Network> activate(@Path('id') String id)
 
-  @POST('defaultNetworks/{id}?action=purge')
+  @POST('v2-beta/defaultNetworks/{id}?action=purge')
   Call<Network> purge(@Path('id') String id)
 
-  @POST('defaultNetworks/{id}?action=remove')
+  @POST('v2-beta/defaultNetworks/{id}?action=remove')
   Call<Network> remove(@Path('id') String id)
 
-  @POST('defaultNetworks/{id}?action=deactivate')
+  @POST('v2-beta/defaultNetworks/{id}?action=deactivate')
   Call<Network> deactivate(@Path('id') String id)
 
 }

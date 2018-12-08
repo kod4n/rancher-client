@@ -12,13 +12,13 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ProcessExecutionApi {
-  @GET('processExecutions')
+  @GET('v2-beta/processExecutions')
   Call<TypeCollection<ProcessExecution>> list()
 
-  @GET('processExecutions')
+  @GET('v2-beta/processExecutions')
   Call<TypeCollection<ProcessExecution>> query(@QueryMap Map<String, String> filters)
 
-  @GET('processExecutions/{id}')
+  @GET('v2-beta/processExecutions/{id}')
   Call<ProcessExecution> findById(@Path('id') String id)
 
 }

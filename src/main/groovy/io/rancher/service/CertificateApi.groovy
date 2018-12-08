@@ -12,16 +12,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface CertificateApi {
-  @GET('certificates')
+  @GET('v2-beta/certificates')
   Call<TypeCollection<Certificate>> list()
 
-  @GET('certificates')
+  @GET('v2-beta/certificates')
   Call<TypeCollection<Certificate>> query(@QueryMap Map<String, String> filters)
 
-  @GET('certificates/{id}')
+  @GET('v2-beta/certificates/{id}')
   Call<Certificate> findById(@Path('id') String id)
 
-  @POST('certificates/{id}?action=remove')
+  @POST('v2-beta/certificates/{id}?action=remove')
   Call<Certificate> remove(@Path('id') String id)
 
 }

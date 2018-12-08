@@ -16,44 +16,44 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ServiceApi {
-  @GET('services')
+  @GET('v2-beta/services')
   Call<TypeCollection<Service>> list()
 
-  @GET('services')
+  @GET('v2-beta/services')
   Call<TypeCollection<Service>> query(@QueryMap Map<String, String> filters)
 
-  @GET('services/{id}')
+  @GET('v2-beta/services/{id}')
   Call<Service> findById(@Path('id') String id)
 
-  @POST('services/{id}?action=rollback')
+  @POST('v2-beta/services/{id}?action=rollback')
   Call<Service> rollback(@Path('id') String id)
 
-  @POST('services/{id}?action=upgrade')
+  @POST('v2-beta/services/{id}?action=upgrade')
   Call<Service> upgrade(@Path('id') String id, @Body ServiceUpgrade serviceUpgrade)
-  @POST('services/{id}?action=restart')
+  @POST('v2-beta/services/{id}?action=restart')
   Call<Service> restart(@Path('id') String id, @Body ServiceRestart serviceRestart)
-  @POST('services/{id}?action=remove')
+  @POST('v2-beta/services/{id}?action=remove')
   Call<Service> remove(@Path('id') String id)
 
-  @POST('services/{id}?action=deactivate')
+  @POST('v2-beta/services/{id}?action=deactivate')
   Call<Service> deactivate(@Path('id') String id)
 
-  @POST('services/{id}?action=finishupgrade')
+  @POST('v2-beta/services/{id}?action=finishupgrade')
   Call<Service> finishupgrade(@Path('id') String id)
 
-  @POST('services/{id}?action=removeservicelink')
+  @POST('v2-beta/services/{id}?action=removeservicelink')
   Call<Service> removeservicelink(@Path('id') String id, @Body AddRemoveServiceLinkInput addRemoveServiceLinkInput)
-  @POST('services/{id}?action=continueupgrade')
+  @POST('v2-beta/services/{id}?action=continueupgrade')
   Call<Service> continueupgrade(@Path('id') String id)
 
-  @POST('services/{id}?action=activate')
+  @POST('v2-beta/services/{id}?action=activate')
   Call<Service> activate(@Path('id') String id)
 
-  @POST('services/{id}?action=addservicelink')
+  @POST('v2-beta/services/{id}?action=addservicelink')
   Call<Service> addservicelink(@Path('id') String id, @Body AddRemoveServiceLinkInput addRemoveServiceLinkInput)
-  @POST('services/{id}?action=cancelupgrade')
+  @POST('v2-beta/services/{id}?action=cancelupgrade')
   Call<Service> cancelupgrade(@Path('id') String id)
 
-  @POST('services/{id}?action=setservicelinks')
+  @POST('v2-beta/services/{id}?action=setservicelinks')
   Call<Service> setservicelinks(@Path('id') String id, @Body SetServiceLinksInput setServiceLinksInput)
 }

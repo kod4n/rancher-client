@@ -12,16 +12,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ConfigItemStatusApi {
-  @GET('configItemStatuses')
+  @GET('v2-beta/configItemStatuses')
   Call<TypeCollection<ConfigItemStatus>> list()
 
-  @GET('configItemStatuses')
+  @GET('v2-beta/configItemStatuses')
   Call<TypeCollection<ConfigItemStatus>> query(@QueryMap Map<String, String> filters)
 
-  @GET('configItemStatuses/{id}')
+  @GET('v2-beta/configItemStatuses/{id}')
   Call<ConfigItemStatus> findById(@Path('id') String id)
 
-  @PUT('configItemStatuses/{id}')
+  @PUT('v2-beta/configItemStatuses/{id}')
   Call<ConfigItemStatus> update(@Path('id') String id, @Body ConfigItemStatus configItemStatus)
 
 }

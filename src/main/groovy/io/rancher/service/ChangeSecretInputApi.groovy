@@ -13,10 +13,10 @@ import retrofit2.http.QueryMap
 
 interface ChangeSecretInputApi {
 
-  @POST('changeSecretInputs')
+  @POST('v2-beta/changeSecretInputs')
   Call<ChangeSecretInput> create(@Body ChangeSecretInput changeSecretInput)
 
-  @GET('changeSecretInputs/{id}')
+  @GET('v2-beta/changeSecretInputs/{id}')
   Call<ChangeSecretInput> findById(@Path('id') String id)
 
 }

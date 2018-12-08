@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface VirtualMachineDiskApi {
 
-  @GET('virtualMachineDisks/{id}')
+  @GET('v2-beta/virtualMachineDisks/{id}')
   Call<VirtualMachineDisk> findById(@Path('id') String id)
 
 }

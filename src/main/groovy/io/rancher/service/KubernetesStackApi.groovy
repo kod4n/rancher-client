@@ -14,30 +14,30 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface KubernetesStackApi {
-  @GET('kubernetesStacks')
+  @GET('v2-beta/kubernetesStacks')
   Call<TypeCollection<KubernetesStack>> list()
 
-  @GET('kubernetesStacks')
+  @GET('v2-beta/kubernetesStacks')
   Call<TypeCollection<KubernetesStack>> query(@QueryMap Map<String, String> filters)
 
-  @GET('kubernetesStacks/{id}')
+  @GET('v2-beta/kubernetesStacks/{id}')
   Call<KubernetesStack> findById(@Path('id') String id)
 
-  @POST('kubernetesStacks/{id}?action=rollback')
+  @POST('v2-beta/kubernetesStacks/{id}?action=rollback')
   Call<Stack> rollback(@Path('id') String id)
 
-  @POST('kubernetesStacks/{id}?action=upgrade')
+  @POST('v2-beta/kubernetesStacks/{id}?action=upgrade')
   Call<KubernetesStack> upgrade(@Path('id') String id, @Body KubernetesStackUpgrade kubernetesStackUpgrade)
-  @POST('kubernetesStacks/{id}?action=error')
+  @POST('v2-beta/kubernetesStacks/{id}?action=error')
   Call<Stack> error(@Path('id') String id)
 
-  @POST('kubernetesStacks/{id}?action=cancelupgrade')
+  @POST('v2-beta/kubernetesStacks/{id}?action=cancelupgrade')
   Call<Stack> cancelupgrade(@Path('id') String id)
 
-  @POST('kubernetesStacks/{id}?action=remove')
+  @POST('v2-beta/kubernetesStacks/{id}?action=remove')
   Call<Stack> remove(@Path('id') String id)
 
-  @POST('kubernetesStacks/{id}?action=finishupgrade')
+  @POST('v2-beta/kubernetesStacks/{id}?action=finishupgrade')
   Call<Stack> finishupgrade(@Path('id') String id)
 
 }

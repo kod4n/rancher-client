@@ -12,16 +12,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ServiceExposeMapApi {
-  @GET('serviceExposeMaps')
+  @GET('v2-beta/serviceExposeMaps')
   Call<TypeCollection<ServiceExposeMap>> list()
 
-  @GET('serviceExposeMaps')
+  @GET('v2-beta/serviceExposeMaps')
   Call<TypeCollection<ServiceExposeMap>> query(@QueryMap Map<String, String> filters)
 
-  @GET('serviceExposeMaps/{id}')
+  @GET('v2-beta/serviceExposeMaps/{id}')
   Call<ServiceExposeMap> findById(@Path('id') String id)
 
-  @POST('serviceExposeMaps/{id}?action=remove')
+  @POST('v2-beta/serviceExposeMaps/{id}?action=remove')
   Call<ServiceExposeMap> remove(@Path('id') String id)
 
 }

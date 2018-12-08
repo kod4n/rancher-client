@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface InstanceStopApi {
 
-  @GET('instanceStops/{id}')
+  @GET('v2-beta/instanceStops/{id}')
   Call<InstanceStop> findById(@Path('id') String id)
 
 }

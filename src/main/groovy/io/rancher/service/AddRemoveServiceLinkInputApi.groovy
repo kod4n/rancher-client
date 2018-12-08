@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface AddRemoveServiceLinkInputApi {
 
-  @GET('addRemoveServiceLinkInputs/{id}')
+  @GET('v2-beta/addRemoveServiceLinkInputs/{id}')
   Call<AddRemoveServiceLinkInput> findById(@Path('id') String id)
 
 }

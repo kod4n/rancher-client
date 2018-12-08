@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface CatalogTemplateApi {
 
-  @GET('catalogTemplates/{id}')
+  @GET('v2-beta/catalogTemplates/{id}')
   Call<CatalogTemplate> findById(@Path('id') String id)
 
 }

@@ -13,10 +13,10 @@ import retrofit2.http.QueryMap
 
 interface PacketConfigApi {
 
-  @POST('packetConfigs')
+  @POST('v2-beta/packetConfigs')
   Call<PacketConfig> create(@Body PacketConfig packetConfig)
 
-  @GET('packetConfigs/{id}')
+  @GET('v2-beta/packetConfigs/{id}')
   Call<PacketConfig> findById(@Path('id') String id)
 
 }

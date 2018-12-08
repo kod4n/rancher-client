@@ -19,13 +19,14 @@ class RancherSchemaPlugin implements Plugin<Project> {
       basePackage = extension.basePackage
       baseSchema = extension.baseSchema
       projectSchema = extension.projectSchema
+      catalogSchema = extension.catalogSchema
     }
   }
 }
 
 class RancherPluginExtension {
   final Property<String> basePackage
-  final Property<File> baseSchema, projectSchema
+  final Property<File> baseSchema, projectSchema, catalogSchema
 
   RancherPluginExtension(Project project) {
     basePackage = project.objects.property(String)
@@ -36,6 +37,9 @@ class RancherPluginExtension {
 
     projectSchema = project.objects.property(File)
     projectSchema.set(new File("${project.projectDir.path}/src/main/resources/projectSchema.json"))
+
+    catalogSchema = project.objects.property(File)
+    catalogSchema.set(new File("${project.projectDir.path}/src/main/resources/catalogSchema.json"))
   }
 }
 
@@ -51,6 +55,7 @@ class RancherClean extends DefaultTask {
   final Property<String> basePackage = project.objects.property(String)
   final Property<File> baseSchema = project.objects.property(File)
   final Property<File> projectSchema = project.objects.property(File)
+  final Property<File> catalogSchema = project.objects.property(File)
 
   @TaskAction
   void cleanRancherSchema() {
@@ -68,44 +73,19 @@ class RancherClean extends DefaultTask {
     // setup schema types
     logger.quiet 'baseSchema: {}', baseSchema.get().path
     logger.quiet 'projectSchema: {}', projectSchema.get().path
+    logger.quiet 'catalogSchema: {}', catalogSchema.get().path
     def schemas = om.readValue baseSchema.get(), Schemas
     def projectSchemas = om.readValue projectSchema.get(), Schemas
-    def projectScheme = projectSchemas.data.findAll { !blacklistTypes.contains(it.id) }
+    def catalogSchemas = om.readValue catalogSchema.get(), Schemas
 
     logger.quiet 'creating rancher types'
-    processSchema(schemas.data)
+    generateTypes(schemas.data)
+    generateTypes(catalogSchemas.data)
 
     // setup schema services
     logger.quiet 'creating rancher services'
-    schemas.data.each { typeSchema ->
-      if (blacklistTypes.contains(typeSchema.id)) {
-        return
-      }
-
-      def subResources = typeSchema.id == 'project' ? projectScheme : null
-      def importTypes = subResources ?
-        projectSchemas.data
-          .findAll {
-            def type = it.id
-            def typeClass = type.capitalize()
-            !blacklistTypes.contains(type) &&
-              !typeSchema.actionImports.contains("io.rancher.type.${typeClass}".toString()) &&
-              typeSchema.typeClass != typeClass
-          }
-          .collect { "io.rancher.type.${it.id.capitalize()}".toString() } :
-          []
-
-      def serviceTemplate = new ST(serviceTemplate.text).with {
-        add 'schema', typeSchema
-        add 'subResources', subResources
-        add 'importTypes', importTypes
-        render()
-      }
-
-      def serviceFile = new File("${outputDirectory}/service/${typeSchema.typeClass}Api.groovy", '')
-      serviceFile.parentFile.mkdirs()
-      serviceFile.text = serviceTemplate
-    }
+    generateServices(schemas, 'v2-beta', projectSchemas)
+    generateServices(catalogSchemas, 'v1-catalog')
   }
 
   static Map<String, String> findTypes(Schema schema) {
@@ -159,7 +139,7 @@ class RancherClean extends DefaultTask {
     }
   }
 
-  def processSchema(List<Schema> schemas) {
+  def generateTypes(List<Schema> schemas) {
     schemas.each { typeSchema ->
       if (blacklistTypes.contains(typeSchema.id)) {
         return
@@ -177,6 +157,41 @@ class RancherClean extends DefaultTask {
       def typeFile = new File("${outputDirectory}/type/${typeClass}.groovy", '')
       typeFile.parentFile.mkdirs()
       typeFile.text = typedTemplate
+    }
+  }
+
+  def generateServices(Schemas schemas, String baseUrl, Schemas projectSchemas = null) {
+    schemas.data.each { typeSchema ->
+      if (blacklistTypes.contains(typeSchema.id)) {
+        return
+      }
+
+      def subResources = typeSchema.id == 'project' ?
+        projectSchemas.data.findAll { !blacklistTypes.contains(it.id) } :
+        null
+      def importTypes = subResources ?
+        projectSchemas.data
+          .findAll {
+            def type = it.id
+            def typeClass = type.capitalize()
+            !blacklistTypes.contains(type) &&
+              !typeSchema.actionImports.contains("io.rancher.type.${typeClass}".toString()) &&
+              typeSchema.typeClass != typeClass
+          }
+          .collect { "io.rancher.type.${it.id.capitalize()}".toString() } :
+          []
+
+      def serviceTemplate = new ST(serviceTemplate.text).with {
+        add 'schema', typeSchema
+        add 'baseUrl', baseUrl
+        add 'subResources', subResources
+        add 'importTypes', importTypes
+        render()
+      }
+
+      def serviceFile = new File("${outputDirectory}/service/${typeSchema.typeClass}Api.groovy", '')
+      serviceFile.parentFile.mkdirs()
+      serviceFile.text = serviceTemplate
     }
   }
 }

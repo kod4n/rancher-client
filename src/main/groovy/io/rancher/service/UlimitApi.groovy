@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface UlimitApi {
 
-  @GET('ulimits/{id}')
+  @GET('v2-beta/ulimits/{id}')
   Call<Ulimit> findById(@Path('id') String id)
 
 }

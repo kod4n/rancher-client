@@ -12,16 +12,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ExternalEventApi {
-  @GET('externalEvents')
+  @GET('v2-beta/externalEvents')
   Call<TypeCollection<ExternalEvent>> list()
 
-  @GET('externalEvents')
+  @GET('v2-beta/externalEvents')
   Call<TypeCollection<ExternalEvent>> query(@QueryMap Map<String, String> filters)
 
-  @GET('externalEvents/{id}')
+  @GET('v2-beta/externalEvents/{id}')
   Call<ExternalEvent> findById(@Path('id') String id)
 
-  @POST('externalEvents/{id}?action=remove')
+  @POST('v2-beta/externalEvents/{id}?action=remove')
   Call<ExternalEvent> remove(@Path('id') String id)
 
 }

@@ -12,13 +12,13 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ExtensionPointApi {
-  @GET('extensionPoints')
+  @GET('v2-beta/extensionPoints')
   Call<TypeCollection<ExtensionPoint>> list()
 
-  @GET('extensionPoints')
+  @GET('v2-beta/extensionPoints')
   Call<TypeCollection<ExtensionPoint>> query(@QueryMap Map<String, String> filters)
 
-  @GET('extensionPoints/{id}')
+  @GET('v2-beta/extensionPoints/{id}')
   Call<ExtensionPoint> findById(@Path('id') String id)
 
 }

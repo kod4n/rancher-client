@@ -13,34 +13,34 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ApiKeyApi {
-  @GET('apiKeys')
+  @GET('v2-beta/apiKeys')
   Call<TypeCollection<ApiKey>> list()
 
-  @GET('apiKeys')
+  @GET('v2-beta/apiKeys')
   Call<TypeCollection<ApiKey>> query(@QueryMap Map<String, String> filters)
 
-  @POST('apiKeys')
+  @POST('v2-beta/apiKeys')
   Call<ApiKey> create(@Body ApiKey apiKey)
 
-  @GET('apiKeys/{id}')
+  @GET('v2-beta/apiKeys/{id}')
   Call<ApiKey> findById(@Path('id') String id)
 
-  @PUT('apiKeys/{id}')
+  @PUT('v2-beta/apiKeys/{id}')
   Call<ApiKey> update(@Path('id') String id, @Body ApiKey apiKey)
 
-  @DELETE('apiKeys/{id}')
+  @DELETE('v2-beta/apiKeys/{id}')
   Call<ApiKey> delete(@Path('id') String id)
 
-  @POST('apiKeys/{id}?action=activate')
+  @POST('v2-beta/apiKeys/{id}?action=activate')
   Call<Credential> activate(@Path('id') String id)
 
-  @POST('apiKeys/{id}?action=purge')
+  @POST('v2-beta/apiKeys/{id}?action=purge')
   Call<Credential> purge(@Path('id') String id)
 
-  @POST('apiKeys/{id}?action=remove')
+  @POST('v2-beta/apiKeys/{id}?action=remove')
   Call<Credential> remove(@Path('id') String id)
 
-  @POST('apiKeys/{id}?action=deactivate')
+  @POST('v2-beta/apiKeys/{id}?action=deactivate')
   Call<Credential> deactivate(@Path('id') String id)
 
 }

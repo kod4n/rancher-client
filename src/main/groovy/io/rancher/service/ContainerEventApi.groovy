@@ -12,16 +12,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ContainerEventApi {
-  @GET('containerEvents')
+  @GET('v2-beta/containerEvents')
   Call<TypeCollection<ContainerEvent>> list()
 
-  @GET('containerEvents')
+  @GET('v2-beta/containerEvents')
   Call<TypeCollection<ContainerEvent>> query(@QueryMap Map<String, String> filters)
 
-  @GET('containerEvents/{id}')
+  @GET('v2-beta/containerEvents/{id}')
   Call<ContainerEvent> findById(@Path('id') String id)
 
-  @POST('containerEvents/{id}?action=remove')
+  @POST('v2-beta/containerEvents/{id}?action=remove')
   Call<ContainerEvent> remove(@Path('id') String id)
 
 }

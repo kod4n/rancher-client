@@ -12,16 +12,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface HealthcheckInstanceHostMapApi {
-  @GET('healthcheckInstanceHostMaps')
+  @GET('v2-beta/healthcheckInstanceHostMaps')
   Call<TypeCollection<HealthcheckInstanceHostMap>> list()
 
-  @GET('healthcheckInstanceHostMaps')
+  @GET('v2-beta/healthcheckInstanceHostMaps')
   Call<TypeCollection<HealthcheckInstanceHostMap>> query(@QueryMap Map<String, String> filters)
 
-  @GET('healthcheckInstanceHostMaps/{id}')
+  @GET('v2-beta/healthcheckInstanceHostMaps/{id}')
   Call<HealthcheckInstanceHostMap> findById(@Path('id') String id)
 
-  @POST('healthcheckInstanceHostMaps/{id}?action=remove')
+  @POST('v2-beta/healthcheckInstanceHostMaps/{id}?action=remove')
   Call<HealthcheckInstanceHostMap> remove(@Path('id') String id)
 
 }

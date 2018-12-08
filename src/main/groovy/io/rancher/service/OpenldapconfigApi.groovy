@@ -12,19 +12,19 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface OpenldapconfigApi {
-  @GET('openldapconfigs')
+  @GET('v2-beta/openldapconfigs')
   Call<TypeCollection<Openldapconfig>> list()
 
-  @GET('openldapconfigs')
+  @GET('v2-beta/openldapconfigs')
   Call<TypeCollection<Openldapconfig>> query(@QueryMap Map<String, String> filters)
 
-  @POST('openldapconfigs')
+  @POST('v2-beta/openldapconfigs')
   Call<Openldapconfig> create(@Body Openldapconfig openldapconfig)
 
-  @GET('openldapconfigs/{id}')
+  @GET('v2-beta/openldapconfigs/{id}')
   Call<Openldapconfig> findById(@Path('id') String id)
 
-  @PUT('openldapconfigs/{id}')
+  @PUT('v2-beta/openldapconfigs/{id}')
   Call<Openldapconfig> update(@Path('id') String id, @Body Openldapconfig openldapconfig)
 
 }

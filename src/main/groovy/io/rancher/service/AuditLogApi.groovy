@@ -12,13 +12,13 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface AuditLogApi {
-  @GET('auditLogs')
+  @GET('v2-beta/auditLogs')
   Call<TypeCollection<AuditLog>> list()
 
-  @GET('auditLogs')
+  @GET('v2-beta/auditLogs')
   Call<TypeCollection<AuditLog>> query(@QueryMap Map<String, String> filters)
 
-  @GET('auditLogs/{id}')
+  @GET('v2-beta/auditLogs/{id}')
   Call<AuditLog> findById(@Path('id') String id)
 
 }

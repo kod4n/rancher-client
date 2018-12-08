@@ -16,31 +16,31 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface VolumeApi {
-  @GET('volumes')
+  @GET('v2-beta/volumes')
   Call<TypeCollection<Volume>> list()
 
-  @GET('volumes')
+  @GET('v2-beta/volumes')
   Call<TypeCollection<Volume>> query(@QueryMap Map<String, String> filters)
 
-  @GET('volumes/{id}')
+  @GET('v2-beta/volumes/{id}')
   Call<Volume> findById(@Path('id') String id)
 
-  @POST('volumes/{id}?action=allocate')
+  @POST('v2-beta/volumes/{id}?action=allocate')
   Call<Volume> allocate(@Path('id') String id)
 
-  @POST('volumes/{id}?action=restorefrombackup')
+  @POST('v2-beta/volumes/{id}?action=restorefrombackup')
   Call<Volume> restorefrombackup(@Path('id') String id, @Body RestoreFromBackupInput restoreFromBackupInput)
-  @POST('volumes/{id}?action=deallocate')
+  @POST('v2-beta/volumes/{id}?action=deallocate')
   Call<Volume> deallocate(@Path('id') String id)
 
-  @POST('volumes/{id}?action=purge')
+  @POST('v2-beta/volumes/{id}?action=purge')
   Call<Volume> purge(@Path('id') String id)
 
-  @POST('volumes/{id}?action=remove')
+  @POST('v2-beta/volumes/{id}?action=remove')
   Call<Volume> remove(@Path('id') String id)
 
-  @POST('volumes/{id}?action=reverttosnapshot')
+  @POST('v2-beta/volumes/{id}?action=reverttosnapshot')
   Call<Volume> reverttosnapshot(@Path('id') String id, @Body RevertToSnapshotInput revertToSnapshotInput)
-  @POST('volumes/{id}?action=snapshot')
+  @POST('v2-beta/volumes/{id}?action=snapshot')
   Call<Snapshot> snapshot(@Path('id') String id, @Body VolumeSnapshotInput volumeSnapshotInput)
 }

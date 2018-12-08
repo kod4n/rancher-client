@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface ToServiceUpgradeStrategyApi {
 
-  @GET('toServiceUpgradeStrategys/{id}')
+  @GET('v2-beta/toServiceUpgradeStrategys/{id}')
   Call<ToServiceUpgradeStrategy> findById(@Path('id') String id)
 
 }

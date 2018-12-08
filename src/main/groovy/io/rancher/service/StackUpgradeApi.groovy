@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface StackUpgradeApi {
 
-  @GET('stackUpgrades/{id}')
+  @GET('v2-beta/stackUpgrades/{id}')
   Call<StackUpgrade> findById(@Path('id') String id)
 
 }

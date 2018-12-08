@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface RecreateOnQuorumStrategyConfigApi {
 
-  @GET('recreateOnQuorumStrategyConfigs/{id}')
+  @GET('v2-beta/recreateOnQuorumStrategyConfigs/{id}')
   Call<RecreateOnQuorumStrategyConfig> findById(@Path('id') String id)
 
 }

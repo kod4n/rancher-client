@@ -12,37 +12,37 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface MachineDriverApi {
-  @GET('machineDrivers')
+  @GET('v2-beta/machineDrivers')
   Call<TypeCollection<MachineDriver>> list()
 
-  @GET('machineDrivers')
+  @GET('v2-beta/machineDrivers')
   Call<TypeCollection<MachineDriver>> query(@QueryMap Map<String, String> filters)
 
-  @POST('machineDrivers')
+  @POST('v2-beta/machineDrivers')
   Call<MachineDriver> create(@Body MachineDriver machineDriver)
 
-  @GET('machineDrivers/{id}')
+  @GET('v2-beta/machineDrivers/{id}')
   Call<MachineDriver> findById(@Path('id') String id)
 
-  @PUT('machineDrivers/{id}')
+  @PUT('v2-beta/machineDrivers/{id}')
   Call<MachineDriver> update(@Path('id') String id, @Body MachineDriver machineDriver)
 
-  @DELETE('machineDrivers/{id}')
+  @DELETE('v2-beta/machineDrivers/{id}')
   Call<MachineDriver> delete(@Path('id') String id)
 
-  @POST('machineDrivers/{id}?action=reactivate')
+  @POST('v2-beta/machineDrivers/{id}?action=reactivate')
   Call<MachineDriver> reactivate(@Path('id') String id)
 
-  @POST('machineDrivers/{id}?action=activate')
+  @POST('v2-beta/machineDrivers/{id}?action=activate')
   Call<MachineDriver> activate(@Path('id') String id)
 
-  @POST('machineDrivers/{id}?action=error')
+  @POST('v2-beta/machineDrivers/{id}?action=error')
   Call<MachineDriver> error(@Path('id') String id)
 
-  @POST('machineDrivers/{id}?action=remove')
+  @POST('v2-beta/machineDrivers/{id}?action=remove')
   Call<MachineDriver> remove(@Path('id') String id)
 
-  @POST('machineDrivers/{id}?action=deactivate')
+  @POST('v2-beta/machineDrivers/{id}?action=deactivate')
   Call<MachineDriver> deactivate(@Path('id') String id)
 
 }

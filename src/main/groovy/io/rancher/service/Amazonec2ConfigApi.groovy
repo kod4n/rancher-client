@@ -13,10 +13,10 @@ import retrofit2.http.QueryMap
 
 interface Amazonec2ConfigApi {
 
-  @POST('amazonec2Configs')
+  @POST('v2-beta/amazonec2Configs')
   Call<Amazonec2Config> create(@Body Amazonec2Config amazonec2Config)
 
-  @GET('amazonec2Configs/{id}')
+  @GET('v2-beta/amazonec2Configs/{id}')
   Call<Amazonec2Config> findById(@Path('id') String id)
 
 }

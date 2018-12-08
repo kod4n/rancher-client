@@ -13,31 +13,31 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ComposeServiceApi {
-  @GET('composeServices')
+  @GET('v2-beta/composeServices')
   Call<TypeCollection<ComposeService>> list()
 
-  @GET('composeServices')
+  @GET('v2-beta/composeServices')
   Call<TypeCollection<ComposeService>> query(@QueryMap Map<String, String> filters)
 
-  @GET('composeServices/{id}')
+  @GET('v2-beta/composeServices/{id}')
   Call<ComposeService> findById(@Path('id') String id)
 
-  @POST('composeServices/{id}?action=rollback')
+  @POST('v2-beta/composeServices/{id}?action=rollback')
   Call<Service> rollback(@Path('id') String id)
 
-  @POST('composeServices/{id}?action=remove')
+  @POST('v2-beta/composeServices/{id}?action=remove')
   Call<Service> remove(@Path('id') String id)
 
-  @POST('composeServices/{id}?action=finishupgrade')
+  @POST('v2-beta/composeServices/{id}?action=finishupgrade')
   Call<Service> finishupgrade(@Path('id') String id)
 
-  @POST('composeServices/{id}?action=continueupgrade')
+  @POST('v2-beta/composeServices/{id}?action=continueupgrade')
   Call<Service> continueupgrade(@Path('id') String id)
 
-  @POST('composeServices/{id}?action=activate')
+  @POST('v2-beta/composeServices/{id}?action=activate')
   Call<Service> activate(@Path('id') String id)
 
-  @POST('composeServices/{id}?action=cancelupgrade')
+  @POST('v2-beta/composeServices/{id}?action=cancelupgrade')
   Call<Service> cancelupgrade(@Path('id') String id)
 
 }

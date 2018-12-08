@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface MountEntryApi {
 
-  @GET('mountEntrys/{id}')
+  @GET('v2-beta/mountEntrys/{id}')
   Call<MountEntry> findById(@Path('id') String id)
 
 }

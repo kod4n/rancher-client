@@ -12,19 +12,19 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface MountApi {
-  @GET('mounts')
+  @GET('v2-beta/mounts')
   Call<TypeCollection<Mount>> list()
 
-  @GET('mounts')
+  @GET('v2-beta/mounts')
   Call<TypeCollection<Mount>> query(@QueryMap Map<String, String> filters)
 
-  @GET('mounts/{id}')
+  @GET('v2-beta/mounts/{id}')
   Call<Mount> findById(@Path('id') String id)
 
-  @POST('mounts/{id}?action=remove')
+  @POST('v2-beta/mounts/{id}?action=remove')
   Call<Mount> remove(@Path('id') String id)
 
-  @POST('mounts/{id}?action=deactivate')
+  @POST('v2-beta/mounts/{id}?action=deactivate')
   Call<Mount> deactivate(@Path('id') String id)
 
 }

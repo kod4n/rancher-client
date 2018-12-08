@@ -12,13 +12,13 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface IdentityApi {
-  @GET('identities')
+  @GET('v2-beta/identities')
   Call<TypeCollection<Identity>> list()
 
-  @GET('identities')
+  @GET('v2-beta/identities')
   Call<TypeCollection<Identity>> query(@QueryMap Map<String, String> filters)
 
-  @GET('identities/{id}')
+  @GET('v2-beta/identities/{id}')
   Call<Identity> findById(@Path('id') String id)
 
 }

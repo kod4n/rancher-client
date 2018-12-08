@@ -12,25 +12,25 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ExternalHandlerProcessApi {
-  @GET('externalHandlerProcesses')
+  @GET('v2-beta/externalHandlerProcesses')
   Call<TypeCollection<ExternalHandlerProcess>> list()
 
-  @GET('externalHandlerProcesses')
+  @GET('v2-beta/externalHandlerProcesses')
   Call<TypeCollection<ExternalHandlerProcess>> query(@QueryMap Map<String, String> filters)
 
-  @GET('externalHandlerProcesses/{id}')
+  @GET('v2-beta/externalHandlerProcesses/{id}')
   Call<ExternalHandlerProcess> findById(@Path('id') String id)
 
-  @POST('externalHandlerProcesses/{id}?action=activate')
+  @POST('v2-beta/externalHandlerProcesses/{id}?action=activate')
   Call<ExternalHandlerProcess> activate(@Path('id') String id)
 
-  @POST('externalHandlerProcesses/{id}?action=purge')
+  @POST('v2-beta/externalHandlerProcesses/{id}?action=purge')
   Call<ExternalHandlerProcess> purge(@Path('id') String id)
 
-  @POST('externalHandlerProcesses/{id}?action=remove')
+  @POST('v2-beta/externalHandlerProcesses/{id}?action=remove')
   Call<ExternalHandlerProcess> remove(@Path('id') String id)
 
-  @POST('externalHandlerProcesses/{id}?action=deactivate')
+  @POST('v2-beta/externalHandlerProcesses/{id}?action=deactivate')
   Call<ExternalHandlerProcess> deactivate(@Path('id') String id)
 
 }

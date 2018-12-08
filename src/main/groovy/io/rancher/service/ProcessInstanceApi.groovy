@@ -12,16 +12,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ProcessInstanceApi {
-  @GET('processInstances')
+  @GET('v2-beta/processInstances')
   Call<TypeCollection<ProcessInstance>> list()
 
-  @GET('processInstances')
+  @GET('v2-beta/processInstances')
   Call<TypeCollection<ProcessInstance>> query(@QueryMap Map<String, String> filters)
 
-  @GET('processInstances/{id}')
+  @GET('v2-beta/processInstances/{id}')
   Call<ProcessInstance> findById(@Path('id') String id)
 
-  @POST('processInstances/{id}?action=replay')
+  @POST('v2-beta/processInstances/{id}?action=replay')
   Call<ProcessInstance> replay(@Path('id') String id)
 
 }

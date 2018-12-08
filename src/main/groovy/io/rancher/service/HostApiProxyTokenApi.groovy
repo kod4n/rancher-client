@@ -12,13 +12,13 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface HostApiProxyTokenApi {
-  @GET('hostApiProxyTokens')
+  @GET('v2-beta/hostApiProxyTokens')
   Call<TypeCollection<HostApiProxyToken>> list()
 
-  @GET('hostApiProxyTokens')
+  @GET('v2-beta/hostApiProxyTokens')
   Call<TypeCollection<HostApiProxyToken>> query(@QueryMap Map<String, String> filters)
 
-  @GET('hostApiProxyTokens/{id}')
+  @GET('v2-beta/hostApiProxyTokens/{id}')
   Call<HostApiProxyToken> findById(@Path('id') String id)
 
 }

@@ -12,22 +12,22 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface StorageDriverApi {
-  @GET('storageDrivers')
+  @GET('v2-beta/storageDrivers')
   Call<TypeCollection<StorageDriver>> list()
 
-  @GET('storageDrivers')
+  @GET('v2-beta/storageDrivers')
   Call<TypeCollection<StorageDriver>> query(@QueryMap Map<String, String> filters)
 
-  @GET('storageDrivers/{id}')
+  @GET('v2-beta/storageDrivers/{id}')
   Call<StorageDriver> findById(@Path('id') String id)
 
-  @POST('storageDrivers/{id}?action=activate')
+  @POST('v2-beta/storageDrivers/{id}?action=activate')
   Call<StorageDriver> activate(@Path('id') String id)
 
-  @POST('storageDrivers/{id}?action=remove')
+  @POST('v2-beta/storageDrivers/{id}?action=remove')
   Call<StorageDriver> remove(@Path('id') String id)
 
-  @POST('storageDrivers/{id}?action=deactivate')
+  @POST('v2-beta/storageDrivers/{id}?action=deactivate')
   Call<StorageDriver> deactivate(@Path('id') String id)
 
 }

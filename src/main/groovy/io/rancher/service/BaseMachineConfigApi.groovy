@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface BaseMachineConfigApi {
 
-  @GET('baseMachineConfigs/{id}')
+  @GET('v2-beta/baseMachineConfigs/{id}')
   Call<BaseMachineConfig> findById(@Path('id') String id)
 
 }

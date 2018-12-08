@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface FieldDocumentationApi {
 
-  @GET('fieldDocumentations/{id}')
+  @GET('v2-beta/fieldDocumentations/{id}')
   Call<FieldDocumentation> findById(@Path('id') String id)
 
 }

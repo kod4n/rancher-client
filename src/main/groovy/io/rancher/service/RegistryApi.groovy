@@ -13,25 +13,25 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface RegistryApi {
-  @GET('registries')
+  @GET('v2-beta/registries')
   Call<TypeCollection<Registry>> list()
 
-  @GET('registries')
+  @GET('v2-beta/registries')
   Call<TypeCollection<Registry>> query(@QueryMap Map<String, String> filters)
 
-  @GET('registries/{id}')
+  @GET('v2-beta/registries/{id}')
   Call<Registry> findById(@Path('id') String id)
 
-  @POST('registries/{id}?action=activate')
+  @POST('v2-beta/registries/{id}?action=activate')
   Call<StoragePool> activate(@Path('id') String id)
 
-  @POST('registries/{id}?action=purge')
+  @POST('v2-beta/registries/{id}?action=purge')
   Call<StoragePool> purge(@Path('id') String id)
 
-  @POST('registries/{id}?action=remove')
+  @POST('v2-beta/registries/{id}?action=remove')
   Call<StoragePool> remove(@Path('id') String id)
 
-  @POST('registries/{id}?action=deactivate')
+  @POST('v2-beta/registries/{id}?action=deactivate')
   Call<StoragePool> deactivate(@Path('id') String id)
 
 }

@@ -13,13 +13,13 @@ import retrofit2.http.QueryMap
 
 interface ActiveSettingApi {
 
-  @GET('activeSettings/{id}')
+  @GET('v2-beta/activeSettings/{id}')
   Call<ActiveSetting> findById(@Path('id') String id)
 
-  @PUT('activeSettings/{id}')
+  @PUT('v2-beta/activeSettings/{id}')
   Call<ActiveSetting> update(@Path('id') String id, @Body ActiveSetting activeSetting)
 
-  @DELETE('activeSettings/{id}')
+  @DELETE('v2-beta/activeSettings/{id}')
   Call<ActiveSetting> delete(@Path('id') String id)
 
 }

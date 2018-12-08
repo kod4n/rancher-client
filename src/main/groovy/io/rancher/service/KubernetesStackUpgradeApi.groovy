@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface KubernetesStackUpgradeApi {
 
-  @GET('kubernetesStackUpgrades/{id}')
+  @GET('v2-beta/kubernetesStackUpgrades/{id}')
   Call<KubernetesStackUpgrade> findById(@Path('id') String id)
 
 }

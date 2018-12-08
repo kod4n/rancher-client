@@ -13,10 +13,10 @@ import retrofit2.http.QueryMap
 
 interface PublishApi {
 
-  @POST('publish')
+  @POST('v2-beta/publish')
   Call<Publish> create(@Body Publish publish)
 
-  @GET('publish/{id}')
+  @GET('v2-beta/publish/{id}')
   Call<Publish> findById(@Path('id') String id)
 
 }

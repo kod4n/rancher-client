@@ -12,13 +12,13 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface TypeDocumentationApi {
-  @GET('typeDocumentations')
+  @GET('v2-beta/typeDocumentations')
   Call<TypeCollection<TypeDocumentation>> list()
 
-  @GET('typeDocumentations')
+  @GET('v2-beta/typeDocumentations')
   Call<TypeCollection<TypeDocumentation>> query(@QueryMap Map<String, String> filters)
 
-  @GET('typeDocumentations/{id}')
+  @GET('v2-beta/typeDocumentations/{id}')
   Call<TypeDocumentation> findById(@Path('id') String id)
 
 }

@@ -13,10 +13,10 @@ import retrofit2.http.QueryMap
 
 interface InstanceHealthCheckApi {
 
-  @POST('instanceHealthChecks')
+  @POST('v2-beta/instanceHealthChecks')
   Call<InstanceHealthCheck> create(@Body InstanceHealthCheck instanceHealthCheck)
 
-  @GET('instanceHealthChecks/{id}')
+  @GET('v2-beta/instanceHealthChecks/{id}')
   Call<InstanceHealthCheck> findById(@Path('id') String id)
 
 }

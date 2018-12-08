@@ -14,36 +14,36 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface PasswordApi {
-  @GET('passwords')
+  @GET('v2-beta/passwords')
   Call<TypeCollection<Password>> list()
 
-  @GET('passwords')
+  @GET('v2-beta/passwords')
   Call<TypeCollection<Password>> query(@QueryMap Map<String, String> filters)
 
-  @POST('passwords')
+  @POST('v2-beta/passwords')
   Call<Password> create(@Body Password password)
 
-  @GET('passwords/{id}')
+  @GET('v2-beta/passwords/{id}')
   Call<Password> findById(@Path('id') String id)
 
-  @PUT('passwords/{id}')
+  @PUT('v2-beta/passwords/{id}')
   Call<Password> update(@Path('id') String id, @Body Password password)
 
-  @DELETE('passwords/{id}')
+  @DELETE('v2-beta/passwords/{id}')
   Call<Password> delete(@Path('id') String id)
 
-  @POST('passwords/{id}?action=activate')
+  @POST('v2-beta/passwords/{id}?action=activate')
   Call<Credential> activate(@Path('id') String id)
 
-  @POST('passwords/{id}?action=purge')
+  @POST('v2-beta/passwords/{id}?action=purge')
   Call<Credential> purge(@Path('id') String id)
 
-  @POST('passwords/{id}?action=remove')
+  @POST('v2-beta/passwords/{id}?action=remove')
   Call<Credential> remove(@Path('id') String id)
 
-  @POST('passwords/{id}?action=deactivate')
+  @POST('v2-beta/passwords/{id}?action=deactivate')
   Call<Credential> deactivate(@Path('id') String id)
 
-  @POST('passwords/{id}?action=changesecret')
+  @POST('v2-beta/passwords/{id}?action=changesecret')
   Call<ChangeSecretInput> changesecret(@Path('id') String id, @Body ChangeSecretInput changeSecretInput)
 }

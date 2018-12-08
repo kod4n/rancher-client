@@ -12,19 +12,19 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ScheduledUpgradeApi {
-  @GET('scheduledUpgrades')
+  @GET('v2-beta/scheduledUpgrades')
   Call<TypeCollection<ScheduledUpgrade>> list()
 
-  @GET('scheduledUpgrades')
+  @GET('v2-beta/scheduledUpgrades')
   Call<TypeCollection<ScheduledUpgrade>> query(@QueryMap Map<String, String> filters)
 
-  @GET('scheduledUpgrades/{id}')
+  @GET('v2-beta/scheduledUpgrades/{id}')
   Call<ScheduledUpgrade> findById(@Path('id') String id)
 
-  @POST('scheduledUpgrades/{id}?action=start')
+  @POST('v2-beta/scheduledUpgrades/{id}?action=start')
   Call<ScheduledUpgrade> start(@Path('id') String id)
 
-  @POST('scheduledUpgrades/{id}?action=remove')
+  @POST('v2-beta/scheduledUpgrades/{id}?action=remove')
   Call<ScheduledUpgrade> remove(@Path('id') String id)
 
 }

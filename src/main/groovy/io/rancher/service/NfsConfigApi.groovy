@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface NfsConfigApi {
 
-  @GET('nfsConfigs/{id}')
+  @GET('v2-beta/nfsConfigs/{id}')
   Call<NfsConfig> findById(@Path('id') String id)
 
 }

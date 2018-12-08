@@ -13,10 +13,10 @@ import retrofit2.http.QueryMap
 
 interface ExternalHandlerProcessConfigApi {
 
-  @POST('externalHandlerProcessConfigs')
+  @POST('v2-beta/externalHandlerProcessConfigs')
   Call<ExternalHandlerProcessConfig> create(@Body ExternalHandlerProcessConfig externalHandlerProcessConfig)
 
-  @GET('externalHandlerProcessConfigs/{id}')
+  @GET('v2-beta/externalHandlerProcessConfigs/{id}')
   Call<ExternalHandlerProcessConfig> findById(@Path('id') String id)
 
 }

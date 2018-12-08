@@ -12,22 +12,22 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface NetworkDriverApi {
-  @GET('networkDrivers')
+  @GET('v2-beta/networkDrivers')
   Call<TypeCollection<NetworkDriver>> list()
 
-  @GET('networkDrivers')
+  @GET('v2-beta/networkDrivers')
   Call<TypeCollection<NetworkDriver>> query(@QueryMap Map<String, String> filters)
 
-  @GET('networkDrivers/{id}')
+  @GET('v2-beta/networkDrivers/{id}')
   Call<NetworkDriver> findById(@Path('id') String id)
 
-  @POST('networkDrivers/{id}?action=activate')
+  @POST('v2-beta/networkDrivers/{id}?action=activate')
   Call<NetworkDriver> activate(@Path('id') String id)
 
-  @POST('networkDrivers/{id}?action=remove')
+  @POST('v2-beta/networkDrivers/{id}?action=remove')
   Call<NetworkDriver> remove(@Path('id') String id)
 
-  @POST('networkDrivers/{id}?action=deactivate')
+  @POST('v2-beta/networkDrivers/{id}?action=deactivate')
   Call<NetworkDriver> deactivate(@Path('id') String id)
 
 }

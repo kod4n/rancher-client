@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface ContainerProxyApi {
 
-  @GET('containerProxys/{id}')
+  @GET('v2-beta/containerProxys/{id}')
   Call<ContainerProxy> findById(@Path('id') String id)
 
 }

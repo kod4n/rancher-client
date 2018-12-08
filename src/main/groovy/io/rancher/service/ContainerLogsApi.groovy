@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface ContainerLogsApi {
 
-  @GET('containerLogses/{id}')
+  @GET('v2-beta/containerLogses/{id}')
   Call<ContainerLogs> findById(@Path('id') String id)
 
 }

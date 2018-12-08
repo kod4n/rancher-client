@@ -12,25 +12,25 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface InstanceLinkApi {
-  @GET('instanceLinks')
+  @GET('v2-beta/instanceLinks')
   Call<TypeCollection<InstanceLink>> list()
 
-  @GET('instanceLinks')
+  @GET('v2-beta/instanceLinks')
   Call<TypeCollection<InstanceLink>> query(@QueryMap Map<String, String> filters)
 
-  @GET('instanceLinks/{id}')
+  @GET('v2-beta/instanceLinks/{id}')
   Call<InstanceLink> findById(@Path('id') String id)
 
-  @POST('instanceLinks/{id}?action=activate')
+  @POST('v2-beta/instanceLinks/{id}?action=activate')
   Call<InstanceLink> activate(@Path('id') String id)
 
-  @POST('instanceLinks/{id}?action=purge')
+  @POST('v2-beta/instanceLinks/{id}?action=purge')
   Call<InstanceLink> purge(@Path('id') String id)
 
-  @POST('instanceLinks/{id}?action=remove')
+  @POST('v2-beta/instanceLinks/{id}?action=remove')
   Call<InstanceLink> remove(@Path('id') String id)
 
-  @POST('instanceLinks/{id}?action=deactivate')
+  @POST('v2-beta/instanceLinks/{id}?action=deactivate')
   Call<InstanceLink> deactivate(@Path('id') String id)
 
 }

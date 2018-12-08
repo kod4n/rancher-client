@@ -12,25 +12,25 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface GenericObjectApi {
-  @GET('genericObjects')
+  @GET('v2-beta/genericObjects')
   Call<TypeCollection<GenericObject>> list()
 
-  @GET('genericObjects')
+  @GET('v2-beta/genericObjects')
   Call<TypeCollection<GenericObject>> query(@QueryMap Map<String, String> filters)
 
-  @POST('genericObjects')
+  @POST('v2-beta/genericObjects')
   Call<GenericObject> create(@Body GenericObject genericObject)
 
-  @GET('genericObjects/{id}')
+  @GET('v2-beta/genericObjects/{id}')
   Call<GenericObject> findById(@Path('id') String id)
 
-  @PUT('genericObjects/{id}')
+  @PUT('v2-beta/genericObjects/{id}')
   Call<GenericObject> update(@Path('id') String id, @Body GenericObject genericObject)
 
-  @DELETE('genericObjects/{id}')
+  @DELETE('v2-beta/genericObjects/{id}')
   Call<GenericObject> delete(@Path('id') String id)
 
-  @POST('genericObjects/{id}?action=remove')
+  @POST('v2-beta/genericObjects/{id}?action=remove')
   Call<GenericObject> remove(@Path('id') String id)
 
 }

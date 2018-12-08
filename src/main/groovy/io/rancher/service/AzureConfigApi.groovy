@@ -13,10 +13,10 @@ import retrofit2.http.QueryMap
 
 interface AzureConfigApi {
 
-  @POST('azureConfigs')
+  @POST('v2-beta/azureConfigs')
   Call<AzureConfig> create(@Body AzureConfig azureConfig)
 
-  @GET('azureConfigs/{id}')
+  @GET('v2-beta/azureConfigs/{id}')
   Call<AzureConfig> findById(@Path('id') String id)
 
 }

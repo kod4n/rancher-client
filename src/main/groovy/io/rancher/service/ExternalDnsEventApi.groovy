@@ -13,16 +13,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ExternalDnsEventApi {
-  @GET('externalDnsEvents')
+  @GET('v2-beta/externalDnsEvents')
   Call<TypeCollection<ExternalDnsEvent>> list()
 
-  @GET('externalDnsEvents')
+  @GET('v2-beta/externalDnsEvents')
   Call<TypeCollection<ExternalDnsEvent>> query(@QueryMap Map<String, String> filters)
 
-  @GET('externalDnsEvents/{id}')
+  @GET('v2-beta/externalDnsEvents/{id}')
   Call<ExternalDnsEvent> findById(@Path('id') String id)
 
-  @POST('externalDnsEvents/{id}?action=remove')
+  @POST('v2-beta/externalDnsEvents/{id}?action=remove')
   Call<ExternalEvent> remove(@Path('id') String id)
 
 }

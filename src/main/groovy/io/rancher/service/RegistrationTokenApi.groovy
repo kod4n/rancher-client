@@ -13,25 +13,25 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface RegistrationTokenApi {
-  @GET('registrationTokens')
+  @GET('v2-beta/registrationTokens')
   Call<TypeCollection<RegistrationToken>> list()
 
-  @GET('registrationTokens')
+  @GET('v2-beta/registrationTokens')
   Call<TypeCollection<RegistrationToken>> query(@QueryMap Map<String, String> filters)
 
-  @GET('registrationTokens/{id}')
+  @GET('v2-beta/registrationTokens/{id}')
   Call<RegistrationToken> findById(@Path('id') String id)
 
-  @POST('registrationTokens/{id}?action=activate')
+  @POST('v2-beta/registrationTokens/{id}?action=activate')
   Call<Credential> activate(@Path('id') String id)
 
-  @POST('registrationTokens/{id}?action=purge')
+  @POST('v2-beta/registrationTokens/{id}?action=purge')
   Call<Credential> purge(@Path('id') String id)
 
-  @POST('registrationTokens/{id}?action=remove')
+  @POST('v2-beta/registrationTokens/{id}?action=remove')
   Call<Credential> remove(@Path('id') String id)
 
-  @POST('registrationTokens/{id}?action=deactivate')
+  @POST('v2-beta/registrationTokens/{id}?action=deactivate')
   Call<Credential> deactivate(@Path('id') String id)
 
 }

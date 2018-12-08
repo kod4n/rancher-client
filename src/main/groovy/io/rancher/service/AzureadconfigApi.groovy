@@ -12,19 +12,19 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface AzureadconfigApi {
-  @GET('azureadconfigs')
+  @GET('v2-beta/azureadconfigs')
   Call<TypeCollection<Azureadconfig>> list()
 
-  @GET('azureadconfigs')
+  @GET('v2-beta/azureadconfigs')
   Call<TypeCollection<Azureadconfig>> query(@QueryMap Map<String, String> filters)
 
-  @POST('azureadconfigs')
+  @POST('v2-beta/azureadconfigs')
   Call<Azureadconfig> create(@Body Azureadconfig azureadconfig)
 
-  @GET('azureadconfigs/{id}')
+  @GET('v2-beta/azureadconfigs/{id}')
   Call<Azureadconfig> findById(@Path('id') String id)
 
-  @PUT('azureadconfigs/{id}')
+  @PUT('v2-beta/azureadconfigs/{id}')
   Call<Azureadconfig> update(@Path('id') String id, @Body Azureadconfig azureadconfig)
 
 }

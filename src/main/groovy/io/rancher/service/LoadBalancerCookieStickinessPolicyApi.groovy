@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface LoadBalancerCookieStickinessPolicyApi {
 
-  @GET('loadBalancerCookieStickinessPolicys/{id}')
+  @GET('v2-beta/loadBalancerCookieStickinessPolicys/{id}')
   Call<LoadBalancerCookieStickinessPolicy> findById(@Path('id') String id)
 
 }

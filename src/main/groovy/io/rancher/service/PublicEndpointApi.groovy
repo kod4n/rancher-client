@@ -13,10 +13,10 @@ import retrofit2.http.QueryMap
 
 interface PublicEndpointApi {
 
-  @POST('publicEndpoints')
+  @POST('v2-beta/publicEndpoints')
   Call<PublicEndpoint> create(@Body PublicEndpoint publicEndpoint)
 
-  @GET('publicEndpoints/{id}')
+  @GET('v2-beta/publicEndpoints/{id}')
   Call<PublicEndpoint> findById(@Path('id') String id)
 
 }

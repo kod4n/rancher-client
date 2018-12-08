@@ -12,13 +12,13 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface TaskInstanceApi {
-  @GET('taskInstances')
+  @GET('v2-beta/taskInstances')
   Call<TypeCollection<TaskInstance>> list()
 
-  @GET('taskInstances')
+  @GET('v2-beta/taskInstances')
   Call<TypeCollection<TaskInstance>> query(@QueryMap Map<String, String> filters)
 
-  @GET('taskInstances/{id}')
+  @GET('v2-beta/taskInstances/{id}')
   Call<TaskInstance> findById(@Path('id') String id)
 
 }

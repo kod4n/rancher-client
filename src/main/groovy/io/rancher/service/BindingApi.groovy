@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface BindingApi {
 
-  @GET('bindings/{id}')
+  @GET('v2-beta/bindings/{id}')
   Call<Binding> findById(@Path('id') String id)
 
 }

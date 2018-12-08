@@ -13,22 +13,22 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface MachineApi {
-  @GET('machines')
+  @GET('v2-beta/machines')
   Call<TypeCollection<Machine>> list()
 
-  @GET('machines')
+  @GET('v2-beta/machines')
   Call<TypeCollection<Machine>> query(@QueryMap Map<String, String> filters)
 
-  @GET('machines/{id}')
+  @GET('v2-beta/machines/{id}')
   Call<Machine> findById(@Path('id') String id)
 
-  @POST('machines/{id}?action=bootstrap')
+  @POST('v2-beta/machines/{id}?action=bootstrap')
   Call<PhysicalHost> bootstrap(@Path('id') String id)
 
-  @POST('machines/{id}?action=error')
+  @POST('v2-beta/machines/{id}?action=error')
   Call<PhysicalHost> error(@Path('id') String id)
 
-  @POST('machines/{id}?action=remove')
+  @POST('v2-beta/machines/{id}?action=remove')
   Call<PhysicalHost> remove(@Path('id') String id)
 
 }

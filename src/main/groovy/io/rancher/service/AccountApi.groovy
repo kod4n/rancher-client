@@ -12,37 +12,37 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface AccountApi {
-  @GET('accounts')
+  @GET('v2-beta/accounts')
   Call<TypeCollection<Account>> list()
 
-  @GET('accounts')
+  @GET('v2-beta/accounts')
   Call<TypeCollection<Account>> query(@QueryMap Map<String, String> filters)
 
-  @POST('accounts')
+  @POST('v2-beta/accounts')
   Call<Account> create(@Body Account account)
 
-  @GET('accounts/{id}')
+  @GET('v2-beta/accounts/{id}')
   Call<Account> findById(@Path('id') String id)
 
-  @PUT('accounts/{id}')
+  @PUT('v2-beta/accounts/{id}')
   Call<Account> update(@Path('id') String id, @Body Account account)
 
-  @DELETE('accounts/{id}')
+  @DELETE('v2-beta/accounts/{id}')
   Call<Account> delete(@Path('id') String id)
 
-  @POST('accounts/{id}?action=upgrade')
+  @POST('v2-beta/accounts/{id}?action=upgrade')
   Call<Account> upgrade(@Path('id') String id)
 
-  @POST('accounts/{id}?action=activate')
+  @POST('v2-beta/accounts/{id}?action=activate')
   Call<Account> activate(@Path('id') String id)
 
-  @POST('accounts/{id}?action=purge')
+  @POST('v2-beta/accounts/{id}?action=purge')
   Call<Account> purge(@Path('id') String id)
 
-  @POST('accounts/{id}?action=remove')
+  @POST('v2-beta/accounts/{id}?action=remove')
   Call<Account> remove(@Path('id') String id)
 
-  @POST('accounts/{id}?action=deactivate')
+  @POST('v2-beta/accounts/{id}?action=deactivate')
   Call<Account> deactivate(@Path('id') String id)
 
 }

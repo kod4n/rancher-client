@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface LbTargetConfigApi {
 
-  @GET('lbTargetConfigs/{id}')
+  @GET('v2-beta/lbTargetConfigs/{id}')
   Call<LbTargetConfig> findById(@Path('id') String id)
 
 }

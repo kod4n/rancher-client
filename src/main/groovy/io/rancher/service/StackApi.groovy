@@ -16,40 +16,40 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface StackApi {
-  @GET('stacks')
+  @GET('v2-beta/stacks')
   Call<TypeCollection<Stack>> list()
 
-  @GET('stacks')
+  @GET('v2-beta/stacks')
   Call<TypeCollection<Stack>> query(@QueryMap Map<String, String> filters)
 
-  @GET('stacks/{id}')
+  @GET('v2-beta/stacks/{id}')
   Call<Stack> findById(@Path('id') String id)
 
-  @POST('stacks/{id}?action=rollback')
+  @POST('v2-beta/stacks/{id}?action=rollback')
   Call<Stack> rollback(@Path('id') String id)
 
-  @POST('stacks/{id}?action=deactivateservices')
+  @POST('v2-beta/stacks/{id}?action=deactivateservices')
   Call<Stack> deactivateservices(@Path('id') String id)
 
-  @POST('stacks/{id}?action=activateservices')
+  @POST('v2-beta/stacks/{id}?action=activateservices')
   Call<Stack> activateservices(@Path('id') String id)
 
-  @POST('stacks/{id}?action=upgrade')
+  @POST('v2-beta/stacks/{id}?action=upgrade')
   Call<Stack> upgrade(@Path('id') String id, @Body StackUpgrade stackUpgrade)
-  @POST('stacks/{id}?action=addoutputs')
+  @POST('v2-beta/stacks/{id}?action=addoutputs')
   Call<Stack> addoutputs(@Path('id') String id, @Body AddOutputsInput addOutputsInput)
-  @POST('stacks/{id}?action=exportconfig')
+  @POST('v2-beta/stacks/{id}?action=exportconfig')
   Call<ComposeConfig> exportconfig(@Path('id') String id, @Body ComposeConfigInput composeConfigInput)
-  @POST('stacks/{id}?action=error')
+  @POST('v2-beta/stacks/{id}?action=error')
   Call<Stack> error(@Path('id') String id)
 
-  @POST('stacks/{id}?action=cancelupgrade')
+  @POST('v2-beta/stacks/{id}?action=cancelupgrade')
   Call<Stack> cancelupgrade(@Path('id') String id)
 
-  @POST('stacks/{id}?action=remove')
+  @POST('v2-beta/stacks/{id}?action=remove')
   Call<Stack> remove(@Path('id') String id)
 
-  @POST('stacks/{id}?action=finishupgrade')
+  @POST('v2-beta/stacks/{id}?action=finishupgrade')
   Call<Stack> finishupgrade(@Path('id') String id)
 
 }

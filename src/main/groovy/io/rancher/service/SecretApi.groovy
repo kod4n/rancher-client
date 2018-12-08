@@ -12,16 +12,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface SecretApi {
-  @GET('secrets')
+  @GET('v2-beta/secrets')
   Call<TypeCollection<Secret>> list()
 
-  @GET('secrets')
+  @GET('v2-beta/secrets')
   Call<TypeCollection<Secret>> query(@QueryMap Map<String, String> filters)
 
-  @GET('secrets/{id}')
+  @GET('v2-beta/secrets/{id}')
   Call<Secret> findById(@Path('id') String id)
 
-  @POST('secrets/{id}?action=remove')
+  @POST('v2-beta/secrets/{id}?action=remove')
   Call<Secret> remove(@Path('id') String id)
 
 }

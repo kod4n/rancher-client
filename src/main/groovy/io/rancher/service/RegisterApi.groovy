@@ -15,18 +15,18 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface RegisterApi {
-  @GET('register')
+  @GET('v2-beta/register')
   Call<TypeCollection<Register>> list()
 
-  @GET('register')
+  @GET('v2-beta/register')
   Call<TypeCollection<Register>> query(@QueryMap Map<String, String> filters)
 
-  @GET('register/{id}')
+  @GET('v2-beta/register/{id}')
   Call<Register> findById(@Path('id') String id)
 
-  @POST('register/{id}?action=remove')
+  @POST('v2-beta/register/{id}?action=remove')
   Call<GenericObject> remove(@Path('id') String id)
 
-  @POST('register/{id}?action=stop')
+  @POST('v2-beta/register/{id}?action=stop')
   Call<Instance> stop(@Path('id') String id, @Body InstanceStop instanceStop)
 }

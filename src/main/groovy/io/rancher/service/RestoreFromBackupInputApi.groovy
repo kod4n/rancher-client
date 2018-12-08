@@ -13,7 +13,7 @@ import retrofit2.http.QueryMap
 
 interface RestoreFromBackupInputApi {
 
-  @GET('restoreFromBackupInputs/{id}')
+  @GET('v2-beta/restoreFromBackupInputs/{id}')
   Call<RestoreFromBackupInput> findById(@Path('id') String id)
 
 }

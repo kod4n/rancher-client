@@ -12,34 +12,34 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface RegionApi {
-  @GET('regions')
+  @GET('v2-beta/regions')
   Call<TypeCollection<Region>> list()
 
-  @GET('regions')
+  @GET('v2-beta/regions')
   Call<TypeCollection<Region>> query(@QueryMap Map<String, String> filters)
 
-  @POST('regions')
+  @POST('v2-beta/regions')
   Call<Region> create(@Body Region region)
 
-  @GET('regions/{id}')
+  @GET('v2-beta/regions/{id}')
   Call<Region> findById(@Path('id') String id)
 
-  @PUT('regions/{id}')
+  @PUT('v2-beta/regions/{id}')
   Call<Region> update(@Path('id') String id, @Body Region region)
 
-  @DELETE('regions/{id}')
+  @DELETE('v2-beta/regions/{id}')
   Call<Region> delete(@Path('id') String id)
 
-  @POST('regions/{id}?action=activate')
+  @POST('v2-beta/regions/{id}?action=activate')
   Call<Region> activate(@Path('id') String id)
 
-  @POST('regions/{id}?action=purge')
+  @POST('v2-beta/regions/{id}?action=purge')
   Call<Region> purge(@Path('id') String id)
 
-  @POST('regions/{id}?action=remove')
+  @POST('v2-beta/regions/{id}?action=remove')
   Call<Region> remove(@Path('id') String id)
 
-  @POST('regions/{id}?action=deactivate')
+  @POST('v2-beta/regions/{id}?action=deactivate')
   Call<Region> deactivate(@Path('id') String id)
 
 }

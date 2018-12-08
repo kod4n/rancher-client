@@ -13,10 +13,10 @@ import retrofit2.http.QueryMap
 
 interface NetworkPolicyRuleMemberApi {
 
-  @POST('networkPolicyRuleMembers')
+  @POST('v2-beta/networkPolicyRuleMembers')
   Call<NetworkPolicyRuleMember> create(@Body NetworkPolicyRuleMember networkPolicyRuleMember)
 
-  @GET('networkPolicyRuleMembers/{id}')
+  @GET('v2-beta/networkPolicyRuleMembers/{id}')
   Call<NetworkPolicyRuleMember> findById(@Path('id') String id)
 
 }

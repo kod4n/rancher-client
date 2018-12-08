@@ -12,25 +12,25 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface AccountLinkApi {
-  @GET('accountLinks')
+  @GET('v2-beta/accountLinks')
   Call<TypeCollection<AccountLink>> list()
 
-  @GET('accountLinks')
+  @GET('v2-beta/accountLinks')
   Call<TypeCollection<AccountLink>> query(@QueryMap Map<String, String> filters)
 
-  @GET('accountLinks/{id}')
+  @GET('v2-beta/accountLinks/{id}')
   Call<AccountLink> findById(@Path('id') String id)
 
-  @POST('accountLinks/{id}?action=activate')
+  @POST('v2-beta/accountLinks/{id}?action=activate')
   Call<AccountLink> activate(@Path('id') String id)
 
-  @POST('accountLinks/{id}?action=purge')
+  @POST('v2-beta/accountLinks/{id}?action=purge')
   Call<AccountLink> purge(@Path('id') String id)
 
-  @POST('accountLinks/{id}?action=remove')
+  @POST('v2-beta/accountLinks/{id}?action=remove')
   Call<AccountLink> remove(@Path('id') String id)
 
-  @POST('accountLinks/{id}?action=deactivate')
+  @POST('v2-beta/accountLinks/{id}?action=deactivate')
   Call<AccountLink> deactivate(@Path('id') String id)
 
 }

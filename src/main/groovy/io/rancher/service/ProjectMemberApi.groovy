@@ -12,28 +12,28 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ProjectMemberApi {
-  @GET('projectMembers')
+  @GET('v2-beta/projectMembers')
   Call<TypeCollection<ProjectMember>> list()
 
-  @GET('projectMembers')
+  @GET('v2-beta/projectMembers')
   Call<TypeCollection<ProjectMember>> query(@QueryMap Map<String, String> filters)
 
-  @POST('projectMembers')
+  @POST('v2-beta/projectMembers')
   Call<ProjectMember> create(@Body ProjectMember projectMember)
 
-  @GET('projectMembers/{id}')
+  @GET('v2-beta/projectMembers/{id}')
   Call<ProjectMember> findById(@Path('id') String id)
 
-  @POST('projectMembers/{id}?action=activate')
+  @POST('v2-beta/projectMembers/{id}?action=activate')
   Call<ProjectMember> activate(@Path('id') String id)
 
-  @POST('projectMembers/{id}?action=purge')
+  @POST('v2-beta/projectMembers/{id}?action=purge')
   Call<ProjectMember> purge(@Path('id') String id)
 
-  @POST('projectMembers/{id}?action=remove')
+  @POST('v2-beta/projectMembers/{id}?action=remove')
   Call<ProjectMember> remove(@Path('id') String id)
 
-  @POST('projectMembers/{id}?action=deactivate')
+  @POST('v2-beta/projectMembers/{id}?action=deactivate')
   Call<ProjectMember> deactivate(@Path('id') String id)
 
 }

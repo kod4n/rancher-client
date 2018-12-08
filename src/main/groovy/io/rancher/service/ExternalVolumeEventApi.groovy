@@ -13,16 +13,16 @@ import retrofit2.http.Path
 import retrofit2.http.QueryMap
 
 interface ExternalVolumeEventApi {
-  @GET('externalVolumeEvents')
+  @GET('v2-beta/externalVolumeEvents')
   Call<TypeCollection<ExternalVolumeEvent>> list()
 
-  @GET('externalVolumeEvents')
+  @GET('v2-beta/externalVolumeEvents')
   Call<TypeCollection<ExternalVolumeEvent>> query(@QueryMap Map<String, String> filters)
 
-  @GET('externalVolumeEvents/{id}')
+  @GET('v2-beta/externalVolumeEvents/{id}')
   Call<ExternalVolumeEvent> findById(@Path('id') String id)
 
-  @POST('externalVolumeEvents/{id}?action=remove')
+  @POST('v2-beta/externalVolumeEvents/{id}?action=remove')
   Call<ExternalEvent> remove(@Path('id') String id)
 
 }
