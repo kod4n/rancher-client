@@ -44,11 +44,10 @@ class Rancher {
   }
 
   /**
-   * Type t.
+   * Creates a retrofit service from an interface.
    *
-   * @param < T > type parameter
-   * @param service the service
-   * @return the t
+   * @param service API interface
+   * @return the retrofit service
    */
   def <T> T type(Class<T> service) {
     retrofit.create service
