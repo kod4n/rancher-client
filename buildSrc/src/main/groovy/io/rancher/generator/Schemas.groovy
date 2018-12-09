@@ -22,14 +22,18 @@ class Schema {
   boolean isResourcePut() { resourceMethods?.contains MethodPut }
   boolean isResourceDelete() { resourceMethods?.contains MethodDelete }
 
+  String getCapitalPluralName() {
+    return pluralName.capitalize()
+  }
+
   Map<String, Action> getResourceActions() {
-    resourceActions.findAll {
+    return resourceActions.findAll {
       !['create', 'update'].contains(it.key) && it.value.outputClass
     }
   }
 
   Set<String> getActionImports() {
-    resourceActions.collectMany { action, config ->
+    return resourceActions.collectMany { action, config ->
       def imports = []
       if (config.input && config.input.capitalize() != typeClass) {
         imports << "io.rancher.type.${config.input.capitalize()}".toString()

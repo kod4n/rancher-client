@@ -46,10 +46,10 @@ interface <schema.typeClass>Api {
 <if(subResource.collectionGet)>
 
   @GET('<baseUrl>/<schema.pluralName>/{<schema.id>Id\}/<subResource.id>')
-  Call\<TypeCollection\<<subResource.typeClass>>> list<subResource.pluralName>(@Path('<schema.id>Id') String <schema.id>Id)
+  Call\<TypeCollection\<<subResource.typeClass>>> list<subResource.capitalPluralName>(@Path('<schema.id>Id') String <schema.id>Id)
 
   @GET('<baseUrl>/<schema.pluralName>/{<schema.id>Id\}/<subResource.id>')
-  Call\<TypeCollection\<<subResource.typeClass>>> query<subResource.pluralName>(@Path('<schema.id>Id') String <schema.id>Id, @QueryMap Map\<String, String> filters)<endif>
+  Call\<TypeCollection\<<subResource.typeClass>>> query<subResource.capitalPluralName>(@Path('<schema.id>Id') String <schema.id>Id, @QueryMap Map\<String, String> filters)<endif>
 <if(subResource.collectionPost)>
 
   @POST('<baseUrl>/<schema.pluralName>/{<schema.id>Id\}/<subResource.id>')

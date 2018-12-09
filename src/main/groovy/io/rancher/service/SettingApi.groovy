@@ -29,5 +29,4 @@ interface SettingApi {
 
   @DELETE('v2-beta/settings/{id}')
   Call<Setting> delete(@Path('id') String id)
-
 }

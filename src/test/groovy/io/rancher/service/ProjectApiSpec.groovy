@@ -1,26 +1,12 @@
 package io.rancher.service
 
 import groovy.util.logging.Slf4j
-import io.rancher.Rancher
-import io.rancher.Rancher.Config
-import org.hamcrest.collection.IsEmptyCollection
-import org.testcontainers.containers.GenericContainer
-import org.testcontainers.containers.output.Slf4jLogConsumer
-import org.testcontainers.containers.wait.strategy.WaitStrategy
-import org.testcontainers.spock.Testcontainers
-import spock.lang.Shared
-import spock.lang.Specification
-import spock.util.matcher.HamcrestSupport
 
-import java.time.Duration
-
-import static java.util.Objects.nonNull
 import static org.hamcrest.Matchers.equalTo
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize
 import static org.hamcrest.collection.IsEmptyCollection.empty
 import static org.hamcrest.core.IsNot.not
 import static org.hamcrest.core.IsNull.notNullValue
-import static org.hamcrest.number.OrderingComparison.greaterThanOrEqualTo
 import static spock.util.matcher.HamcrestSupport.expect
 
 @Slf4j

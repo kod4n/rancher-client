@@ -44,5 +44,4 @@ interface AccountApi {
 
   @POST('v2-beta/accounts/{id}?action=deactivate')
   Call<Account> deactivate(@Path('id') String id)
-
 }

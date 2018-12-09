@@ -32,5 +32,4 @@ interface ProjectTemplateApi {
 
   @POST('v2-beta/projectTemplates/{id}?action=remove')
   Call<ProjectTemplate> remove(@Path('id') String id)
-
 }

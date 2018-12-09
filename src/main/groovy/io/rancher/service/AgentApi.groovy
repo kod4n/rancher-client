@@ -50,5 +50,4 @@ interface AgentApi {
 
   @POST('v2-beta/agents/{id}?action=deactivate')
   Call<Agent> deactivate(@Path('id') String id)
-
 }

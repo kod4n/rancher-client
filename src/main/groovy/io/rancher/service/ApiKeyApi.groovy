@@ -42,5 +42,4 @@ interface ApiKeyApi {
 
   @POST('v2-beta/apiKeys/{id}?action=deactivate')
   Call<Credential> deactivate(@Path('id') String id)
-
 }

@@ -32,5 +32,4 @@ interface GenericObjectApi {
 
   @POST('v2-beta/genericObjects/{id}?action=remove')
   Call<GenericObject> remove(@Path('id') String id)
-
 }

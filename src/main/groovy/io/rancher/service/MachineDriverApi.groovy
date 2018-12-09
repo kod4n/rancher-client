@@ -44,5 +44,4 @@ interface MachineDriverApi {
 
   @POST('v2-beta/machineDrivers/{id}?action=deactivate')
   Call<MachineDriver> deactivate(@Path('id') String id)
-
 }

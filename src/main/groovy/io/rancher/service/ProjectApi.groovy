@@ -1,140 +1,7 @@
 package io.rancher.service
 
 import io.rancher.base.TypeCollection
-import io.rancher.type.Project
-import io.rancher.type.Account
-import io.rancher.type.SetProjectMembersInput
-import io.rancher.type.ActiveSetting
-import io.rancher.type.AddOutputsInput
-import io.rancher.type.AddRemoveServiceLinkInput
-import io.rancher.type.Amazonec2Config
-import io.rancher.type.ApiKey
-import io.rancher.type.AuditLog
-import io.rancher.type.AzureConfig
-import io.rancher.type.Backup
-import io.rancher.type.BackupTarget
-import io.rancher.type.BaseMachineConfig
-import io.rancher.type.Binding
-import io.rancher.type.BlkioDeviceOption
-import io.rancher.type.CatalogTemplate
-import io.rancher.type.Certificate
-import io.rancher.type.ChangeSecretInput
-import io.rancher.type.ComposeConfig
-import io.rancher.type.ComposeConfigInput
-import io.rancher.type.ComposeProject
-import io.rancher.type.ComposeService
-import io.rancher.type.Container
-import io.rancher.type.ContainerEvent
-import io.rancher.type.ContainerExec
-import io.rancher.type.ContainerLogs
-import io.rancher.type.ContainerProxy
-import io.rancher.type.Credential
-import io.rancher.type.DefaultNetwork
-import io.rancher.type.DigitaloceanConfig
-import io.rancher.type.DnsService
-import io.rancher.type.DockerBuild
-import io.rancher.type.ExternalDnsEvent
-import io.rancher.type.ExternalEvent
-import io.rancher.type.ExternalHostEvent
-import io.rancher.type.ExternalService
-import io.rancher.type.ExternalServiceEvent
-import io.rancher.type.ExternalStoragePoolEvent
-import io.rancher.type.ExternalVolumeEvent
-import io.rancher.type.FieldDocumentation
-import io.rancher.type.GenericObject
-import io.rancher.type.HealthcheckInstanceHostMap
-import io.rancher.type.Host
-import io.rancher.type.HostAccess
-import io.rancher.type.HostTemplate
-import io.rancher.type.Identity
-import io.rancher.type.Image
-import io.rancher.type.InServiceUpgradeStrategy
-import io.rancher.type.Instance
-import io.rancher.type.InstanceConsole
-import io.rancher.type.InstanceConsoleInput
-import io.rancher.type.InstanceHealthCheck
-import io.rancher.type.InstanceLink
-import io.rancher.type.InstanceStop
-import io.rancher.type.IpAddress
-import io.rancher.type.KubernetesService
-import io.rancher.type.KubernetesStack
-import io.rancher.type.KubernetesStackUpgrade
-import io.rancher.type.Label
-import io.rancher.type.LaunchConfig
-import io.rancher.type.LbConfig
-import io.rancher.type.LbTargetConfig
-import io.rancher.type.LoadBalancerCookieStickinessPolicy
-import io.rancher.type.LoadBalancerService
-import io.rancher.type.LogConfig
-import io.rancher.type.Machine
-import io.rancher.type.MachineDriver
-import io.rancher.type.Mount
-import io.rancher.type.MountEntry
-import io.rancher.type.Network
-import io.rancher.type.NetworkDriver
-import io.rancher.type.NetworkDriverService
-import io.rancher.type.NetworkPolicyRule
-import io.rancher.type.NetworkPolicyRuleBetween
-import io.rancher.type.NetworkPolicyRuleMember
-import io.rancher.type.NetworkPolicyRuleWithin
-import io.rancher.type.NfsConfig
-import io.rancher.type.PacketConfig
-import io.rancher.type.Password
-import io.rancher.type.PhysicalHost
-import io.rancher.type.Port
-import io.rancher.type.PortRule
-import io.rancher.type.ProjectMember
-import io.rancher.type.ProjectTemplate
-import io.rancher.type.PublicEndpoint
-import io.rancher.type.PullTask
-import io.rancher.type.RecreateOnQuorumStrategyConfig
-import io.rancher.type.Region
-import io.rancher.type.Register
-import io.rancher.type.RegistrationToken
-import io.rancher.type.Registry
-import io.rancher.type.RegistryCredential
-import io.rancher.type.RestartPolicy
-import io.rancher.type.RestoreFromBackupInput
-import io.rancher.type.RevertToSnapshotInput
-import io.rancher.type.RollingRestartStrategy
-import io.rancher.type.ScalePolicy
-import io.rancher.type.ScheduledUpgrade
-import io.rancher.type.SecondaryLaunchConfig
-import io.rancher.type.Secret
-import io.rancher.type.SecretReference
-import io.rancher.type.Service
-import io.rancher.type.ServiceBinding
-import io.rancher.type.ServiceConsumeMap
-import io.rancher.type.ServiceEvent
-import io.rancher.type.ServiceExposeMap
-import io.rancher.type.ServiceLink
-import io.rancher.type.ServiceLog
-import io.rancher.type.ServiceProxy
-import io.rancher.type.ServiceRestart
-import io.rancher.type.ServiceUpgrade
-import io.rancher.type.ServiceUpgradeStrategy
-import io.rancher.type.ServicesPortRange
-import io.rancher.type.SetServiceLinksInput
-import io.rancher.type.Setting
-import io.rancher.type.Snapshot
-import io.rancher.type.SnapshotBackupInput
-import io.rancher.type.Stack
-import io.rancher.type.StackUpgrade
-import io.rancher.type.StatsAccess
-import io.rancher.type.StorageDriver
-import io.rancher.type.StorageDriverService
-import io.rancher.type.StoragePool
-import io.rancher.type.Subnet
-import io.rancher.type.TargetPortRule
-import io.rancher.type.ToServiceUpgradeStrategy
-import io.rancher.type.TypeDocumentation
-import io.rancher.type.Ulimit
-import io.rancher.type.VirtualMachine
-import io.rancher.type.VirtualMachineDisk
-import io.rancher.type.Volume
-import io.rancher.type.VolumeActivateInput
-import io.rancher.type.VolumeSnapshotInput
-import io.rancher.type.VolumeTemplate
+import io.rancher.type.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -182,10 +49,10 @@ interface ProjectApi {
   Call<SetProjectMembersInput> setmembers(@Path('id') String id, @Body SetProjectMembersInput setProjectMembersInput)
 
   @GET('v2-beta/projects/{projectId}/account')
-  Call<TypeCollection<Account>> listaccounts(@Path('projectId') String projectId)
+  Call<TypeCollection<Account>> listAccounts(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/account')
-  Call<TypeCollection<Account>> queryaccounts(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Account>> queryAccounts(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/account/{id}')
   Call<Account> findAccountById(@Path('projectId') String projectId, @Path('id') String id)
@@ -204,7 +71,6 @@ interface ProjectApi {
 
   @POST('v2-beta/projects/{projectId}/account/{id}?action=deactivate')
   Call<Account> deactivateAccount(@Path('projectId') String projectId, @Path('id') String id)
-
 
   @GET('v2-beta/projects/{projectId}/activeSetting/{id}')
   Call<ActiveSetting> findActiveSettingById(@Path('projectId') String projectId, @Path('id') String id)
@@ -225,10 +91,10 @@ interface ProjectApi {
   Call<Amazonec2Config> findAmazonec2ConfigById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/apiKey')
-  Call<TypeCollection<ApiKey>> listapiKeys(@Path('projectId') String projectId)
+  Call<TypeCollection<ApiKey>> listApiKeys(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/apiKey')
-  Call<TypeCollection<ApiKey>> queryapiKeys(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ApiKey>> queryApiKeys(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/apiKey')
   Call<ApiKey> createApiKey(@Path('projectId') String projectId, @Body ApiKey apiKey)
@@ -254,12 +120,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/apiKey/{id}?action=deactivate')
   Call<Credential> deactivateApiKey(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/auditLog')
+  Call<TypeCollection<AuditLog>> listAuditLogs(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/auditLog')
-  Call<TypeCollection<AuditLog>> listauditLogs(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/auditLog')
-  Call<TypeCollection<AuditLog>> queryauditLogs(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<AuditLog>> queryAuditLogs(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/auditLog/{id}')
   Call<AuditLog> findAuditLogById(@Path('projectId') String projectId, @Path('id') String id)
@@ -271,10 +136,10 @@ interface ProjectApi {
   Call<AzureConfig> findAzureConfigById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/backup')
-  Call<TypeCollection<Backup>> listbackups(@Path('projectId') String projectId)
+  Call<TypeCollection<Backup>> listBackups(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/backup')
-  Call<TypeCollection<Backup>> querybackups(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Backup>> queryBackups(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/backup/{id}')
   Call<Backup> findBackupById(@Path('projectId') String projectId, @Path('id') String id)
@@ -285,12 +150,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/backup/{id}?action=remove')
   Call<Backup> removeBackup(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/backupTarget')
+  Call<TypeCollection<BackupTarget>> listBackupTargets(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/backupTarget')
-  Call<TypeCollection<BackupTarget>> listbackupTargets(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/backupTarget')
-  Call<TypeCollection<BackupTarget>> querybackupTargets(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<BackupTarget>> queryBackupTargets(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/backupTarget')
   Call<BackupTarget> createBackupTarget(@Path('projectId') String projectId, @Body BackupTarget backupTarget)
@@ -303,7 +167,6 @@ interface ProjectApi {
 
   @POST('v2-beta/projects/{projectId}/backupTarget/{id}?action=remove')
   Call<BackupTarget> removeBackupTarget(@Path('projectId') String projectId, @Path('id') String id)
-
 
   @GET('v2-beta/projects/{projectId}/baseMachineConfig/{id}')
   Call<BaseMachineConfig> findBaseMachineConfigById(@Path('projectId') String projectId, @Path('id') String id)
@@ -327,10 +190,10 @@ interface ProjectApi {
   Call<CatalogTemplate> findCatalogTemplateById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/certificate')
-  Call<TypeCollection<Certificate>> listcertificates(@Path('projectId') String projectId)
+  Call<TypeCollection<Certificate>> listCertificates(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/certificate')
-  Call<TypeCollection<Certificate>> querycertificates(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Certificate>> queryCertificates(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/certificate')
   Call<Certificate> createCertificate(@Path('projectId') String projectId, @Body Certificate certificate)
@@ -346,7 +209,6 @@ interface ProjectApi {
 
   @POST('v2-beta/projects/{projectId}/certificate/{id}?action=remove')
   Call<Certificate> removeCertificate(@Path('projectId') String projectId, @Path('id') String id)
-
 
   @POST('v2-beta/projects/{projectId}/changeSecretInput')
   Call<ChangeSecretInput> createChangeSecretInput(@Path('projectId') String projectId, @Body ChangeSecretInput changeSecretInput)
@@ -364,10 +226,10 @@ interface ProjectApi {
   Call<ComposeConfigInput> findComposeConfigInputById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/composeProject')
-  Call<TypeCollection<ComposeProject>> listcomposeProjects(@Path('projectId') String projectId)
+  Call<TypeCollection<ComposeProject>> listComposeProjects(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/composeProject')
-  Call<TypeCollection<ComposeProject>> querycomposeProjects(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ComposeProject>> queryComposeProjects(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/composeProject')
   Call<ComposeProject> createComposeProject(@Path('projectId') String projectId, @Body ComposeProject composeProject)
@@ -396,12 +258,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/composeProject/{id}?action=finishupgrade')
   Call<Stack> finishupgradeComposeProject(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/composeService')
+  Call<TypeCollection<ComposeService>> listComposeServices(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/composeService')
-  Call<TypeCollection<ComposeService>> listcomposeServices(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/composeService')
-  Call<TypeCollection<ComposeService>> querycomposeServices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ComposeService>> queryComposeServices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/composeService/{id}')
   Call<ComposeService> findComposeServiceById(@Path('projectId') String projectId, @Path('id') String id)
@@ -427,12 +288,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/composeService/{id}?action=cancelupgrade')
   Call<Service> cancelupgradeComposeService(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/container')
+  Call<TypeCollection<Container>> listContainers(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/container')
-  Call<TypeCollection<Container>> listcontainers(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/container')
-  Call<TypeCollection<Container>> querycontainers(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Container>> queryContainers(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/container')
   Call<Container> createContainer(@Path('projectId') String projectId, @Body Container container)
@@ -495,17 +355,16 @@ interface ProjectApi {
   Call<HostAccess> proxyContainer(@Path('projectId') String projectId, @Path('id') String id, @Body ContainerProxy containerProxy)
 
   @GET('v2-beta/projects/{projectId}/containerEvent')
-  Call<TypeCollection<ContainerEvent>> listcontainerEvents(@Path('projectId') String projectId)
+  Call<TypeCollection<ContainerEvent>> listContainerEvents(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/containerEvent')
-  Call<TypeCollection<ContainerEvent>> querycontainerEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ContainerEvent>> queryContainerEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/containerEvent/{id}')
   Call<ContainerEvent> findContainerEventById(@Path('projectId') String projectId, @Path('id') String id)
 
   @POST('v2-beta/projects/{projectId}/containerEvent/{id}?action=remove')
   Call<ContainerEvent> removeContainerEvent(@Path('projectId') String projectId, @Path('id') String id)
-
 
   @POST('v2-beta/projects/{projectId}/containerExec')
   Call<ContainerExec> createContainerExec(@Path('projectId') String projectId, @Body ContainerExec containerExec)
@@ -526,10 +385,10 @@ interface ProjectApi {
   Call<ContainerProxy> findContainerProxyById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/credential')
-  Call<TypeCollection<Credential>> listcredentials(@Path('projectId') String projectId)
+  Call<TypeCollection<Credential>> listCredentials(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/credential')
-  Call<TypeCollection<Credential>> querycredentials(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Credential>> queryCredentials(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/credential/{id}')
   Call<Credential> findCredentialById(@Path('projectId') String projectId, @Path('id') String id)
@@ -546,7 +405,6 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/credential/{id}?action=deactivate')
   Call<Credential> deactivateCredential(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @GET('v2-beta/projects/{projectId}/defaultNetwork/{id}')
   Call<DefaultNetwork> findDefaultNetworkById(@Path('projectId') String projectId, @Path('id') String id)
 
@@ -562,7 +420,6 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/defaultNetwork/{id}?action=deactivate')
   Call<Network> deactivateDefaultNetwork(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @POST('v2-beta/projects/{projectId}/digitaloceanConfig')
   Call<DigitaloceanConfig> createDigitaloceanConfig(@Path('projectId') String projectId, @Body DigitaloceanConfig digitaloceanConfig)
 
@@ -570,10 +427,10 @@ interface ProjectApi {
   Call<DigitaloceanConfig> findDigitaloceanConfigById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/dnsService')
-  Call<TypeCollection<DnsService>> listdnsServices(@Path('projectId') String projectId)
+  Call<TypeCollection<DnsService>> listDnsServices(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/dnsService')
-  Call<TypeCollection<DnsService>> querydnsServices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<DnsService>> queryDnsServices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/dnsService')
   Call<DnsService> createDnsService(@Path('projectId') String projectId, @Body DnsService dnsService)
@@ -630,10 +487,10 @@ interface ProjectApi {
   Call<DockerBuild> findDockerBuildById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/externalDnsEvent')
-  Call<TypeCollection<ExternalDnsEvent>> listexternalDnsEvents(@Path('projectId') String projectId)
+  Call<TypeCollection<ExternalDnsEvent>> listExternalDnsEvents(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/externalDnsEvent')
-  Call<TypeCollection<ExternalDnsEvent>> queryexternalDnsEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ExternalDnsEvent>> queryExternalDnsEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/externalDnsEvent/{id}')
   Call<ExternalDnsEvent> findExternalDnsEventById(@Path('projectId') String projectId, @Path('id') String id)
@@ -641,12 +498,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/externalDnsEvent/{id}?action=remove')
   Call<ExternalEvent> removeExternalDnsEvent(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/externalEvent')
+  Call<TypeCollection<ExternalEvent>> listExternalEvents(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/externalEvent')
-  Call<TypeCollection<ExternalEvent>> listexternalEvents(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/externalEvent')
-  Call<TypeCollection<ExternalEvent>> queryexternalEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ExternalEvent>> queryExternalEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/externalEvent/{id}')
   Call<ExternalEvent> findExternalEventById(@Path('projectId') String projectId, @Path('id') String id)
@@ -654,12 +510,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/externalEvent/{id}?action=remove')
   Call<ExternalEvent> removeExternalEvent(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/externalHostEvent')
+  Call<TypeCollection<ExternalHostEvent>> listExternalHostEvents(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/externalHostEvent')
-  Call<TypeCollection<ExternalHostEvent>> listexternalHostEvents(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/externalHostEvent')
-  Call<TypeCollection<ExternalHostEvent>> queryexternalHostEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ExternalHostEvent>> queryExternalHostEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/externalHostEvent')
   Call<ExternalHostEvent> createExternalHostEvent(@Path('projectId') String projectId, @Body ExternalHostEvent externalHostEvent)
@@ -670,12 +525,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/externalHostEvent/{id}?action=remove')
   Call<ExternalEvent> removeExternalHostEvent(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/externalService')
+  Call<TypeCollection<ExternalService>> listExternalServices(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/externalService')
-  Call<TypeCollection<ExternalService>> listexternalServices(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/externalService')
-  Call<TypeCollection<ExternalService>> queryexternalServices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ExternalService>> queryExternalServices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/externalService')
   Call<ExternalService> createExternalService(@Path('projectId') String projectId, @Body ExternalService externalService)
@@ -716,12 +570,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/externalService/{id}?action=cancelupgrade')
   Call<Service> cancelupgradeExternalService(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/externalServiceEvent')
+  Call<TypeCollection<ExternalServiceEvent>> listExternalServiceEvents(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/externalServiceEvent')
-  Call<TypeCollection<ExternalServiceEvent>> listexternalServiceEvents(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/externalServiceEvent')
-  Call<TypeCollection<ExternalServiceEvent>> queryexternalServiceEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ExternalServiceEvent>> queryExternalServiceEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/externalServiceEvent/{id}')
   Call<ExternalServiceEvent> findExternalServiceEventById(@Path('projectId') String projectId, @Path('id') String id)
@@ -729,12 +582,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/externalServiceEvent/{id}?action=remove')
   Call<ExternalEvent> removeExternalServiceEvent(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/externalStoragePoolEvent')
+  Call<TypeCollection<ExternalStoragePoolEvent>> listExternalStoragePoolEvents(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/externalStoragePoolEvent')
-  Call<TypeCollection<ExternalStoragePoolEvent>> listexternalStoragePoolEvents(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/externalStoragePoolEvent')
-  Call<TypeCollection<ExternalStoragePoolEvent>> queryexternalStoragePoolEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ExternalStoragePoolEvent>> queryExternalStoragePoolEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/externalStoragePoolEvent/{id}')
   Call<ExternalStoragePoolEvent> findExternalStoragePoolEventById(@Path('projectId') String projectId, @Path('id') String id)
@@ -742,12 +594,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/externalStoragePoolEvent/{id}?action=remove')
   Call<ExternalEvent> removeExternalStoragePoolEvent(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/externalVolumeEvent')
+  Call<TypeCollection<ExternalVolumeEvent>> listExternalVolumeEvents(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/externalVolumeEvent')
-  Call<TypeCollection<ExternalVolumeEvent>> listexternalVolumeEvents(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/externalVolumeEvent')
-  Call<TypeCollection<ExternalVolumeEvent>> queryexternalVolumeEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ExternalVolumeEvent>> queryExternalVolumeEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/externalVolumeEvent/{id}')
   Call<ExternalVolumeEvent> findExternalVolumeEventById(@Path('projectId') String projectId, @Path('id') String id)
@@ -755,15 +606,14 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/externalVolumeEvent/{id}?action=remove')
   Call<ExternalEvent> removeExternalVolumeEvent(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @GET('v2-beta/projects/{projectId}/fieldDocumentation/{id}')
   Call<FieldDocumentation> findFieldDocumentationById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/genericObject')
-  Call<TypeCollection<GenericObject>> listgenericObjects(@Path('projectId') String projectId)
+  Call<TypeCollection<GenericObject>> listGenericObjects(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/genericObject')
-  Call<TypeCollection<GenericObject>> querygenericObjects(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<GenericObject>> queryGenericObjects(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/genericObject')
   Call<GenericObject> createGenericObject(@Path('projectId') String projectId, @Body GenericObject genericObject)
@@ -780,12 +630,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/genericObject/{id}?action=remove')
   Call<GenericObject> removeGenericObject(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/healthcheckInstanceHostMap')
+  Call<TypeCollection<HealthcheckInstanceHostMap>> listHealthcheckInstanceHostMaps(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/healthcheckInstanceHostMap')
-  Call<TypeCollection<HealthcheckInstanceHostMap>> listhealthcheckInstanceHostMaps(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/healthcheckInstanceHostMap')
-  Call<TypeCollection<HealthcheckInstanceHostMap>> queryhealthcheckInstanceHostMaps(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<HealthcheckInstanceHostMap>> queryHealthcheckInstanceHostMaps(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/healthcheckInstanceHostMap/{id}')
   Call<HealthcheckInstanceHostMap> findHealthcheckInstanceHostMapById(@Path('projectId') String projectId, @Path('id') String id)
@@ -793,12 +642,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/healthcheckInstanceHostMap/{id}?action=remove')
   Call<HealthcheckInstanceHostMap> removeHealthcheckInstanceHostMap(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/host')
+  Call<TypeCollection<Host>> listHosts(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/host')
-  Call<TypeCollection<Host>> listhosts(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/host')
-  Call<TypeCollection<Host>> queryhosts(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Host>> queryHosts(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/host')
   Call<Host> createHost(@Path('projectId') String projectId, @Body Host host)
@@ -836,15 +684,14 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/host/{id}?action=deactivate')
   Call<Host> deactivateHost(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @GET('v2-beta/projects/{projectId}/hostAccess/{id}')
   Call<HostAccess> findHostAccessById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/hostTemplate')
-  Call<TypeCollection<HostTemplate>> listhostTemplates(@Path('projectId') String projectId)
+  Call<TypeCollection<HostTemplate>> listHostTemplates(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/hostTemplate')
-  Call<TypeCollection<HostTemplate>> queryhostTemplates(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<HostTemplate>> queryHostTemplates(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/hostTemplate')
   Call<HostTemplate> createHostTemplate(@Path('projectId') String projectId, @Body HostTemplate hostTemplate)
@@ -861,21 +708,20 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/hostTemplate/{id}?action=remove')
   Call<HostTemplate> removeHostTemplate(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/identity')
+  Call<TypeCollection<Identity>> listIdentities(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/identity')
-  Call<TypeCollection<Identity>> listidentities(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/identity')
-  Call<TypeCollection<Identity>> queryidentities(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Identity>> queryIdentities(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/identity/{id}')
   Call<Identity> findIdentityById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/image')
-  Call<TypeCollection<Image>> listimages(@Path('projectId') String projectId)
+  Call<TypeCollection<Image>> listImages(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/image')
-  Call<TypeCollection<Image>> queryimages(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Image>> queryImages(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/image/{id}')
   Call<Image> findImageById(@Path('projectId') String projectId, @Path('id') String id)
@@ -892,7 +738,6 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/image/{id}?action=deactivate')
   Call<Image> deactivateImage(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @POST('v2-beta/projects/{projectId}/inServiceUpgradeStrategy')
   Call<InServiceUpgradeStrategy> createInServiceUpgradeStrategy(@Path('projectId') String projectId, @Body InServiceUpgradeStrategy inServiceUpgradeStrategy)
 
@@ -900,10 +745,10 @@ interface ProjectApi {
   Call<InServiceUpgradeStrategy> findInServiceUpgradeStrategyById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/instance')
-  Call<TypeCollection<Instance>> listinstances(@Path('projectId') String projectId)
+  Call<TypeCollection<Instance>> listInstances(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/instance')
-  Call<TypeCollection<Instance>> queryinstances(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Instance>> queryInstances(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/instance/{id}')
   Call<Instance> findInstanceById(@Path('projectId') String projectId, @Path('id') String id)
@@ -947,7 +792,6 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/instance/{id}?action=migrate')
   Call<Instance> migrateInstance(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @GET('v2-beta/projects/{projectId}/instanceConsole/{id}')
   Call<InstanceConsole> findInstanceConsoleById(@Path('projectId') String projectId, @Path('id') String id)
 
@@ -961,10 +805,10 @@ interface ProjectApi {
   Call<InstanceHealthCheck> findInstanceHealthCheckById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/instanceLink')
-  Call<TypeCollection<InstanceLink>> listinstanceLinks(@Path('projectId') String projectId)
+  Call<TypeCollection<InstanceLink>> listInstanceLinks(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/instanceLink')
-  Call<TypeCollection<InstanceLink>> queryinstanceLinks(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<InstanceLink>> queryInstanceLinks(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/instanceLink/{id}')
   Call<InstanceLink> findInstanceLinkById(@Path('projectId') String projectId, @Path('id') String id)
@@ -984,7 +828,6 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/instanceLink/{id}?action=deactivate')
   Call<InstanceLink> deactivateInstanceLink(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @POST('v2-beta/projects/{projectId}/instanceStop')
   Call<InstanceStop> createInstanceStop(@Path('projectId') String projectId, @Body InstanceStop instanceStop)
 
@@ -992,10 +835,10 @@ interface ProjectApi {
   Call<InstanceStop> findInstanceStopById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/ipAddress')
-  Call<TypeCollection<IpAddress>> listipAddresses(@Path('projectId') String projectId)
+  Call<TypeCollection<IpAddress>> listIpAddresses(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/ipAddress')
-  Call<TypeCollection<IpAddress>> queryipAddresses(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<IpAddress>> queryIpAddresses(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/ipAddress/{id}')
   Call<IpAddress> findIpAddressById(@Path('projectId') String projectId, @Path('id') String id)
@@ -1018,12 +861,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/ipAddress/{id}?action=disassociate')
   Call<IpAddress> disassociateIpAddress(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/kubernetesService')
+  Call<TypeCollection<KubernetesService>> listKubernetesServices(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/kubernetesService')
-  Call<TypeCollection<KubernetesService>> listkubernetesServices(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/kubernetesService')
-  Call<TypeCollection<KubernetesService>> querykubernetesServices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<KubernetesService>> queryKubernetesServices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/kubernetesService/{id}')
   Call<KubernetesService> findKubernetesServiceById(@Path('projectId') String projectId, @Path('id') String id)
@@ -1065,10 +907,10 @@ interface ProjectApi {
   Call<Service> setservicelinksKubernetesService(@Path('projectId') String projectId, @Path('id') String id, @Body SetServiceLinksInput setServiceLinksInput)
 
   @GET('v2-beta/projects/{projectId}/kubernetesStack')
-  Call<TypeCollection<KubernetesStack>> listkubernetesStacks(@Path('projectId') String projectId)
+  Call<TypeCollection<KubernetesStack>> listKubernetesStacks(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/kubernetesStack')
-  Call<TypeCollection<KubernetesStack>> querykubernetesStacks(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<KubernetesStack>> queryKubernetesStacks(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/kubernetesStack')
   Call<KubernetesStack> createKubernetesStack(@Path('projectId') String projectId, @Body KubernetesStack kubernetesStack)
@@ -1100,7 +942,6 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/kubernetesStack/{id}?action=finishupgrade')
   Call<Stack> finishupgradeKubernetesStack(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @POST('v2-beta/projects/{projectId}/kubernetesStackUpgrade')
   Call<KubernetesStackUpgrade> createKubernetesStackUpgrade(@Path('projectId') String projectId, @Body KubernetesStackUpgrade kubernetesStackUpgrade)
 
@@ -1108,17 +949,16 @@ interface ProjectApi {
   Call<KubernetesStackUpgrade> findKubernetesStackUpgradeById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/label')
-  Call<TypeCollection<Label>> listlabels(@Path('projectId') String projectId)
+  Call<TypeCollection<Label>> listLabels(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/label')
-  Call<TypeCollection<Label>> querylabels(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Label>> queryLabels(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/label/{id}')
   Call<Label> findLabelById(@Path('projectId') String projectId, @Path('id') String id)
 
   @POST('v2-beta/projects/{projectId}/label/{id}?action=remove')
   Call<Label> removeLabel(@Path('projectId') String projectId, @Path('id') String id)
-
 
   @POST('v2-beta/projects/{projectId}/launchConfig')
   Call<LaunchConfig> createLaunchConfig(@Path('projectId') String projectId, @Body LaunchConfig launchConfig)
@@ -1193,10 +1033,10 @@ interface ProjectApi {
   Call<LoadBalancerCookieStickinessPolicy> updateLoadBalancerCookieStickinessPolicy(@Path('projectId') String projectId, @Path('id') String id, @Body LoadBalancerCookieStickinessPolicy loadBalancerCookieStickinessPolicy)
 
   @GET('v2-beta/projects/{projectId}/loadBalancerService')
-  Call<TypeCollection<LoadBalancerService>> listloadBalancerServices(@Path('projectId') String projectId)
+  Call<TypeCollection<LoadBalancerService>> listLoadBalancerServices(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/loadBalancerService')
-  Call<TypeCollection<LoadBalancerService>> queryloadBalancerServices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<LoadBalancerService>> queryLoadBalancerServices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/loadBalancerService')
   Call<LoadBalancerService> createLoadBalancerService(@Path('projectId') String projectId, @Body LoadBalancerService loadBalancerService)
@@ -1253,10 +1093,10 @@ interface ProjectApi {
   Call<LogConfig> findLogConfigById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/machine')
-  Call<TypeCollection<Machine>> listmachines(@Path('projectId') String projectId)
+  Call<TypeCollection<Machine>> listMachines(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/machine')
-  Call<TypeCollection<Machine>> querymachines(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Machine>> queryMachines(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/machine')
   Call<Machine> createMachine(@Path('projectId') String projectId, @Body Machine machine)
@@ -1279,21 +1119,20 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/machine/{id}?action=remove')
   Call<PhysicalHost> removeMachine(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/machineDriver')
+  Call<TypeCollection<MachineDriver>> listMachineDrivers(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/machineDriver')
-  Call<TypeCollection<MachineDriver>> listmachineDrivers(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/machineDriver')
-  Call<TypeCollection<MachineDriver>> querymachineDrivers(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<MachineDriver>> queryMachineDrivers(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/machineDriver/{id}')
   Call<MachineDriver> findMachineDriverById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/mount')
-  Call<TypeCollection<Mount>> listmounts(@Path('projectId') String projectId)
+  Call<TypeCollection<Mount>> listMounts(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/mount')
-  Call<TypeCollection<Mount>> querymounts(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Mount>> queryMounts(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/mount/{id}')
   Call<Mount> findMountById(@Path('projectId') String projectId, @Path('id') String id)
@@ -1304,15 +1143,14 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/mount/{id}?action=deactivate')
   Call<Mount> deactivateMount(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @GET('v2-beta/projects/{projectId}/mountEntry/{id}')
   Call<MountEntry> findMountEntryById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/network')
-  Call<TypeCollection<Network>> listnetworks(@Path('projectId') String projectId)
+  Call<TypeCollection<Network>> listNetworks(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/network')
-  Call<TypeCollection<Network>> querynetworks(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Network>> queryNetworks(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/network')
   Call<Network> createNetwork(@Path('projectId') String projectId, @Body Network network)
@@ -1338,12 +1176,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/network/{id}?action=deactivate')
   Call<Network> deactivateNetwork(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/networkDriver')
+  Call<TypeCollection<NetworkDriver>> listNetworkDrivers(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/networkDriver')
-  Call<TypeCollection<NetworkDriver>> listnetworkDrivers(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/networkDriver')
-  Call<TypeCollection<NetworkDriver>> querynetworkDrivers(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<NetworkDriver>> queryNetworkDrivers(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/networkDriver/{id}')
   Call<NetworkDriver> findNetworkDriverById(@Path('projectId') String projectId, @Path('id') String id)
@@ -1357,12 +1194,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/networkDriver/{id}?action=deactivate')
   Call<NetworkDriver> deactivateNetworkDriver(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/networkDriverService')
+  Call<TypeCollection<NetworkDriverService>> listNetworkDriverServices(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/networkDriverService')
-  Call<TypeCollection<NetworkDriverService>> listnetworkDriverServices(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/networkDriverService')
-  Call<TypeCollection<NetworkDriverService>> querynetworkDriverServices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<NetworkDriverService>> queryNetworkDriverServices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/networkDriverService')
   Call<NetworkDriverService> createNetworkDriverService(@Path('projectId') String projectId, @Body NetworkDriverService networkDriverService)
@@ -1431,10 +1267,10 @@ interface ProjectApi {
   Call<NetworkPolicyRuleMember> findNetworkPolicyRuleMemberById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/networkPolicyRuleWithin')
-  Call<TypeCollection<NetworkPolicyRuleWithin>> listnetworkPolicyRuleWithins(@Path('projectId') String projectId)
+  Call<TypeCollection<NetworkPolicyRuleWithin>> listNetworkPolicyRuleWithins(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/networkPolicyRuleWithin')
-  Call<TypeCollection<NetworkPolicyRuleWithin>> querynetworkPolicyRuleWithins(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<NetworkPolicyRuleWithin>> queryNetworkPolicyRuleWithins(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/networkPolicyRuleWithin')
   Call<NetworkPolicyRuleWithin> createNetworkPolicyRuleWithin(@Path('projectId') String projectId, @Body NetworkPolicyRuleWithin networkPolicyRuleWithin)
@@ -1452,10 +1288,10 @@ interface ProjectApi {
   Call<PacketConfig> findPacketConfigById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/password')
-  Call<TypeCollection<Password>> listpasswords(@Path('projectId') String projectId)
+  Call<TypeCollection<Password>> listPasswords(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/password')
-  Call<TypeCollection<Password>> querypasswords(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Password>> queryPasswords(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/password')
   Call<Password> createPassword(@Path('projectId') String projectId, @Body Password password)
@@ -1485,10 +1321,10 @@ interface ProjectApi {
   Call<ChangeSecretInput> changesecretPassword(@Path('projectId') String projectId, @Path('id') String id, @Body ChangeSecretInput changeSecretInput)
 
   @GET('v2-beta/projects/{projectId}/physicalHost')
-  Call<TypeCollection<PhysicalHost>> listphysicalHosts(@Path('projectId') String projectId)
+  Call<TypeCollection<PhysicalHost>> listPhysicalHosts(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/physicalHost')
-  Call<TypeCollection<PhysicalHost>> queryphysicalHosts(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<PhysicalHost>> queryPhysicalHosts(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/physicalHost/{id}')
   Call<PhysicalHost> findPhysicalHostById(@Path('projectId') String projectId, @Path('id') String id)
@@ -1502,12 +1338,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/physicalHost/{id}?action=remove')
   Call<PhysicalHost> removePhysicalHost(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/port')
+  Call<TypeCollection<Port>> listPorts(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/port')
-  Call<TypeCollection<Port>> listports(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/port')
-  Call<TypeCollection<Port>> queryports(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Port>> queryPorts(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/port/{id}')
   Call<Port> findPortById(@Path('projectId') String projectId, @Path('id') String id)
@@ -1527,7 +1362,6 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/port/{id}?action=deactivate')
   Call<Port> deactivatePort(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @POST('v2-beta/projects/{projectId}/portRule')
   Call<PortRule> createPortRule(@Path('projectId') String projectId, @Body PortRule portRule)
 
@@ -1535,10 +1369,10 @@ interface ProjectApi {
   Call<PortRule> findPortRuleById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/project')
-  Call<TypeCollection<Project>> listprojects(@Path('projectId') String projectId)
+  Call<TypeCollection<Project>> listProjects(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/project')
-  Call<TypeCollection<Project>> queryprojects(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Project>> queryProjects(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/project/{id}')
   Call<Project> findProjectById(@Path('projectId') String projectId, @Path('id') String id)
@@ -1562,10 +1396,10 @@ interface ProjectApi {
   Call<SetProjectMembersInput> setmembersProject(@Path('projectId') String projectId, @Path('id') String id, @Body SetProjectMembersInput setProjectMembersInput)
 
   @GET('v2-beta/projects/{projectId}/projectMember')
-  Call<TypeCollection<ProjectMember>> listprojectMembers(@Path('projectId') String projectId)
+  Call<TypeCollection<ProjectMember>> listProjectMembers(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/projectMember')
-  Call<TypeCollection<ProjectMember>> queryprojectMembers(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ProjectMember>> queryProjectMembers(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/projectMember/{id}')
   Call<ProjectMember> findProjectMemberById(@Path('projectId') String projectId, @Path('id') String id)
@@ -1582,12 +1416,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/projectMember/{id}?action=deactivate')
   Call<ProjectMember> deactivateProjectMember(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/projectTemplate')
+  Call<TypeCollection<ProjectTemplate>> listProjectTemplates(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/projectTemplate')
-  Call<TypeCollection<ProjectTemplate>> listprojectTemplates(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/projectTemplate')
-  Call<TypeCollection<ProjectTemplate>> queryprojectTemplates(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ProjectTemplate>> queryProjectTemplates(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/projectTemplate/{id}')
   Call<ProjectTemplate> findProjectTemplateById(@Path('projectId') String projectId, @Path('id') String id)
@@ -1595,15 +1428,14 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/projectTemplate/{id}?action=remove')
   Call<ProjectTemplate> removeProjectTemplate(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @GET('v2-beta/projects/{projectId}/publicEndpoint/{id}')
   Call<PublicEndpoint> findPublicEndpointById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/pullTask')
-  Call<TypeCollection<PullTask>> listpullTasks(@Path('projectId') String projectId)
+  Call<TypeCollection<PullTask>> listPullTasks(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/pullTask')
-  Call<TypeCollection<PullTask>> querypullTasks(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<PullTask>> queryPullTasks(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/pullTask')
   Call<PullTask> createPullTask(@Path('projectId') String projectId, @Body PullTask pullTask)
@@ -1614,7 +1446,6 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/pullTask/{id}?action=remove')
   Call<GenericObject> removePullTask(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @POST('v2-beta/projects/{projectId}/recreateOnQuorumStrategyConfig')
   Call<RecreateOnQuorumStrategyConfig> createRecreateOnQuorumStrategyConfig(@Path('projectId') String projectId, @Body RecreateOnQuorumStrategyConfig recreateOnQuorumStrategyConfig)
 
@@ -1622,10 +1453,10 @@ interface ProjectApi {
   Call<RecreateOnQuorumStrategyConfig> findRecreateOnQuorumStrategyConfigById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/region')
-  Call<TypeCollection<Region>> listregions(@Path('projectId') String projectId)
+  Call<TypeCollection<Region>> listRegions(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/region')
-  Call<TypeCollection<Region>> queryregions(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Region>> queryRegions(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/region/{id}')
   Call<Region> findRegionById(@Path('projectId') String projectId, @Path('id') String id)
@@ -1642,12 +1473,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/region/{id}?action=deactivate')
   Call<Region> deactivateRegion(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/register')
+  Call<TypeCollection<Register>> listRegister(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/register')
-  Call<TypeCollection<Register>> listregister(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/register')
-  Call<TypeCollection<Register>> queryregister(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Register>> queryRegister(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/register')
   Call<Register> createRegister(@Path('projectId') String projectId, @Body Register register)
@@ -1662,10 +1492,10 @@ interface ProjectApi {
   Call<Instance> stopRegister(@Path('projectId') String projectId, @Path('id') String id, @Body InstanceStop instanceStop)
 
   @GET('v2-beta/projects/{projectId}/registrationToken')
-  Call<TypeCollection<RegistrationToken>> listregistrationTokens(@Path('projectId') String projectId)
+  Call<TypeCollection<RegistrationToken>> listRegistrationTokens(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/registrationToken')
-  Call<TypeCollection<RegistrationToken>> queryregistrationTokens(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<RegistrationToken>> queryRegistrationTokens(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/registrationToken')
   Call<RegistrationToken> createRegistrationToken(@Path('projectId') String projectId, @Body RegistrationToken registrationToken)
@@ -1685,12 +1515,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/registrationToken/{id}?action=deactivate')
   Call<Credential> deactivateRegistrationToken(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/registry')
+  Call<TypeCollection<Registry>> listRegistries(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/registry')
-  Call<TypeCollection<Registry>> listregistries(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/registry')
-  Call<TypeCollection<Registry>> queryregistries(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Registry>> queryRegistries(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/registry')
   Call<Registry> createRegistry(@Path('projectId') String projectId, @Body Registry registry)
@@ -1716,12 +1545,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/registry/{id}?action=deactivate')
   Call<StoragePool> deactivateRegistry(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/registryCredential')
+  Call<TypeCollection<RegistryCredential>> listRegistryCredentials(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/registryCredential')
-  Call<TypeCollection<RegistryCredential>> listregistryCredentials(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/registryCredential')
-  Call<TypeCollection<RegistryCredential>> queryregistryCredentials(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<RegistryCredential>> queryRegistryCredentials(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/registryCredential')
   Call<RegistryCredential> createRegistryCredential(@Path('projectId') String projectId, @Body RegistryCredential registryCredential)
@@ -1747,7 +1575,6 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/registryCredential/{id}?action=deactivate')
   Call<Credential> deactivateRegistryCredential(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @POST('v2-beta/projects/{projectId}/restartPolicy')
   Call<RestartPolicy> createRestartPolicy(@Path('projectId') String projectId, @Body RestartPolicy restartPolicy)
 
@@ -1770,10 +1597,10 @@ interface ProjectApi {
   Call<ScalePolicy> findScalePolicyById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/scheduledUpgrade')
-  Call<TypeCollection<ScheduledUpgrade>> listscheduledUpgrades(@Path('projectId') String projectId)
+  Call<TypeCollection<ScheduledUpgrade>> listScheduledUpgrades(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/scheduledUpgrade')
-  Call<TypeCollection<ScheduledUpgrade>> queryscheduledUpgrades(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ScheduledUpgrade>> queryScheduledUpgrades(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/scheduledUpgrade/{id}')
   Call<ScheduledUpgrade> findScheduledUpgradeById(@Path('projectId') String projectId, @Path('id') String id)
@@ -1783,7 +1610,6 @@ interface ProjectApi {
 
   @POST('v2-beta/projects/{projectId}/scheduledUpgrade/{id}?action=remove')
   Call<ScheduledUpgrade> removeScheduledUpgrade(@Path('projectId') String projectId, @Path('id') String id)
-
 
   @POST('v2-beta/projects/{projectId}/secondaryLaunchConfig')
   Call<SecondaryLaunchConfig> createSecondaryLaunchConfig(@Path('projectId') String projectId, @Body SecondaryLaunchConfig secondaryLaunchConfig)
@@ -1840,10 +1666,10 @@ interface ProjectApi {
   Call<HostAccess> proxySecondaryLaunchConfig(@Path('projectId') String projectId, @Path('id') String id, @Body ContainerProxy containerProxy)
 
   @GET('v2-beta/projects/{projectId}/secret')
-  Call<TypeCollection<Secret>> listsecrets(@Path('projectId') String projectId)
+  Call<TypeCollection<Secret>> listSecrets(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/secret')
-  Call<TypeCollection<Secret>> querysecrets(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Secret>> querySecrets(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/secret')
   Call<Secret> createSecret(@Path('projectId') String projectId, @Body Secret secret)
@@ -1860,7 +1686,6 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/secret/{id}?action=remove')
   Call<Secret> removeSecret(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @POST('v2-beta/projects/{projectId}/secretReference')
   Call<SecretReference> createSecretReference(@Path('projectId') String projectId, @Body SecretReference secretReference)
 
@@ -1868,10 +1693,10 @@ interface ProjectApi {
   Call<SecretReference> findSecretReferenceById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/service')
-  Call<TypeCollection<Service>> listservices(@Path('projectId') String projectId)
+  Call<TypeCollection<Service>> listServices(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/service')
-  Call<TypeCollection<Service>> queryservices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Service>> queryServices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/service')
   Call<Service> createService(@Path('projectId') String projectId, @Body Service service)
@@ -1931,10 +1756,10 @@ interface ProjectApi {
   Call<ServiceBinding> updateServiceBinding(@Path('projectId') String projectId, @Path('id') String id, @Body ServiceBinding serviceBinding)
 
   @GET('v2-beta/projects/{projectId}/serviceConsumeMap')
-  Call<TypeCollection<ServiceConsumeMap>> listserviceConsumeMaps(@Path('projectId') String projectId)
+  Call<TypeCollection<ServiceConsumeMap>> listServiceConsumeMaps(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/serviceConsumeMap')
-  Call<TypeCollection<ServiceConsumeMap>> queryserviceConsumeMaps(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ServiceConsumeMap>> queryServiceConsumeMaps(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/serviceConsumeMap/{id}')
   Call<ServiceConsumeMap> findServiceConsumeMapById(@Path('projectId') String projectId, @Path('id') String id)
@@ -1942,12 +1767,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/serviceConsumeMap/{id}?action=remove')
   Call<ServiceConsumeMap> removeServiceConsumeMap(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/serviceEvent')
+  Call<TypeCollection<ServiceEvent>> listServiceEvents(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/serviceEvent')
-  Call<TypeCollection<ServiceEvent>> listserviceEvents(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/serviceEvent')
-  Call<TypeCollection<ServiceEvent>> queryserviceEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ServiceEvent>> queryServiceEvents(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/serviceEvent/{id}')
   Call<ServiceEvent> findServiceEventById(@Path('projectId') String projectId, @Path('id') String id)
@@ -1955,19 +1779,17 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/serviceEvent/{id}?action=remove')
   Call<ServiceEvent> removeServiceEvent(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/serviceExposeMap')
+  Call<TypeCollection<ServiceExposeMap>> listServiceExposeMaps(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/serviceExposeMap')
-  Call<TypeCollection<ServiceExposeMap>> listserviceExposeMaps(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/serviceExposeMap')
-  Call<TypeCollection<ServiceExposeMap>> queryserviceExposeMaps(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ServiceExposeMap>> queryServiceExposeMaps(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/serviceExposeMap/{id}')
   Call<ServiceExposeMap> findServiceExposeMapById(@Path('projectId') String projectId, @Path('id') String id)
 
   @POST('v2-beta/projects/{projectId}/serviceExposeMap/{id}?action=remove')
   Call<ServiceExposeMap> removeServiceExposeMap(@Path('projectId') String projectId, @Path('id') String id)
-
 
   @POST('v2-beta/projects/{projectId}/serviceLink')
   Call<ServiceLink> createServiceLink(@Path('projectId') String projectId, @Body ServiceLink serviceLink)
@@ -1976,19 +1798,19 @@ interface ProjectApi {
   Call<ServiceLink> findServiceLinkById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/serviceLog')
-  Call<TypeCollection<ServiceLog>> listserviceLogs(@Path('projectId') String projectId)
+  Call<TypeCollection<ServiceLog>> listServiceLogs(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/serviceLog')
-  Call<TypeCollection<ServiceLog>> queryserviceLogs(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ServiceLog>> queryServiceLogs(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/serviceLog/{id}')
   Call<ServiceLog> findServiceLogById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/serviceProxy')
-  Call<TypeCollection<ServiceProxy>> listserviceProxies(@Path('projectId') String projectId)
+  Call<TypeCollection<ServiceProxy>> listServiceProxies(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/serviceProxy')
-  Call<TypeCollection<ServiceProxy>> queryserviceProxies(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<ServiceProxy>> queryServiceProxies(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/serviceProxy')
   Call<ServiceProxy> createServiceProxy(@Path('projectId') String projectId, @Body ServiceProxy serviceProxy)
@@ -2033,19 +1855,19 @@ interface ProjectApi {
   Call<SetServiceLinksInput> findSetServiceLinksInputById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/setting')
-  Call<TypeCollection<Setting>> listsettings(@Path('projectId') String projectId)
+  Call<TypeCollection<Setting>> listSettings(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/setting')
-  Call<TypeCollection<Setting>> querysettings(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Setting>> querySettings(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/setting/{id}')
   Call<Setting> findSettingById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/snapshot')
-  Call<TypeCollection<Snapshot>> listsnapshots(@Path('projectId') String projectId)
+  Call<TypeCollection<Snapshot>> listSnapshots(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/snapshot')
-  Call<TypeCollection<Snapshot>> querysnapshots(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Snapshot>> querySnapshots(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/snapshot/{id}')
   Call<Snapshot> findSnapshotById(@Path('projectId') String projectId, @Path('id') String id)
@@ -2059,15 +1881,14 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/snapshot/{id}?action=remove')
   Call<Snapshot> removeSnapshot(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @GET('v2-beta/projects/{projectId}/snapshotBackupInput/{id}')
   Call<SnapshotBackupInput> findSnapshotBackupInputById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/stack')
-  Call<TypeCollection<Stack>> liststacks(@Path('projectId') String projectId)
+  Call<TypeCollection<Stack>> listStacks(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/stack')
-  Call<TypeCollection<Stack>> querystacks(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Stack>> queryStacks(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/stack')
   Call<Stack> createStack(@Path('projectId') String projectId, @Body Stack stack)
@@ -2111,7 +1932,6 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/stack/{id}?action=finishupgrade')
   Call<Stack> finishupgradeStack(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @POST('v2-beta/projects/{projectId}/stackUpgrade')
   Call<StackUpgrade> createStackUpgrade(@Path('projectId') String projectId, @Body StackUpgrade stackUpgrade)
 
@@ -2122,10 +1942,10 @@ interface ProjectApi {
   Call<StatsAccess> findStatsAccessById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/storageDriver')
-  Call<TypeCollection<StorageDriver>> liststorageDrivers(@Path('projectId') String projectId)
+  Call<TypeCollection<StorageDriver>> listStorageDrivers(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/storageDriver')
-  Call<TypeCollection<StorageDriver>> querystorageDrivers(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<StorageDriver>> queryStorageDrivers(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/storageDriver/{id}')
   Call<StorageDriver> findStorageDriverById(@Path('projectId') String projectId, @Path('id') String id)
@@ -2139,12 +1959,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/storageDriver/{id}?action=deactivate')
   Call<StorageDriver> deactivateStorageDriver(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/storageDriverService')
+  Call<TypeCollection<StorageDriverService>> listStorageDriverServices(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/storageDriverService')
-  Call<TypeCollection<StorageDriverService>> liststorageDriverServices(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/storageDriverService')
-  Call<TypeCollection<StorageDriverService>> querystorageDriverServices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<StorageDriverService>> queryStorageDriverServices(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/storageDriverService')
   Call<StorageDriverService> createStorageDriverService(@Path('projectId') String projectId, @Body StorageDriverService storageDriverService)
@@ -2195,10 +2014,10 @@ interface ProjectApi {
   Call<Service> setservicelinksStorageDriverService(@Path('projectId') String projectId, @Path('id') String id, @Body SetServiceLinksInput setServiceLinksInput)
 
   @GET('v2-beta/projects/{projectId}/storagePool')
-  Call<TypeCollection<StoragePool>> liststoragePools(@Path('projectId') String projectId)
+  Call<TypeCollection<StoragePool>> listStoragePools(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/storagePool')
-  Call<TypeCollection<StoragePool>> querystoragePools(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<StoragePool>> queryStoragePools(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/storagePool/{id}')
   Call<StoragePool> findStoragePoolById(@Path('projectId') String projectId, @Path('id') String id)
@@ -2215,12 +2034,11 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/storagePool/{id}?action=deactivate')
   Call<StoragePool> deactivateStoragePool(@Path('projectId') String projectId, @Path('id') String id)
 
+  @GET('v2-beta/projects/{projectId}/subnet')
+  Call<TypeCollection<Subnet>> listSubnets(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/subnet')
-  Call<TypeCollection<Subnet>> listsubnets(@Path('projectId') String projectId)
-
-  @GET('v2-beta/projects/{projectId}/subnet')
-  Call<TypeCollection<Subnet>> querysubnets(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Subnet>> querySubnets(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/subnet/{id}')
   Call<Subnet> findSubnetById(@Path('projectId') String projectId, @Path('id') String id)
@@ -2237,7 +2055,6 @@ interface ProjectApi {
   @POST('v2-beta/projects/{projectId}/subnet/{id}?action=deactivate')
   Call<Subnet> deactivateSubnet(@Path('projectId') String projectId, @Path('id') String id)
 
-
   @POST('v2-beta/projects/{projectId}/targetPortRule')
   Call<TargetPortRule> createTargetPortRule(@Path('projectId') String projectId, @Body TargetPortRule targetPortRule)
 
@@ -2251,10 +2068,10 @@ interface ProjectApi {
   Call<ToServiceUpgradeStrategy> findToServiceUpgradeStrategyById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/typeDocumentation')
-  Call<TypeCollection<TypeDocumentation>> listtypeDocumentations(@Path('projectId') String projectId)
+  Call<TypeCollection<TypeDocumentation>> listTypeDocumentations(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/typeDocumentation')
-  Call<TypeCollection<TypeDocumentation>> querytypeDocumentations(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<TypeDocumentation>> queryTypeDocumentations(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @GET('v2-beta/projects/{projectId}/typeDocumentation/{id}')
   Call<TypeDocumentation> findTypeDocumentationById(@Path('projectId') String projectId, @Path('id') String id)
@@ -2266,10 +2083,10 @@ interface ProjectApi {
   Call<Ulimit> findUlimitById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/virtualMachine')
-  Call<TypeCollection<VirtualMachine>> listvirtualMachines(@Path('projectId') String projectId)
+  Call<TypeCollection<VirtualMachine>> listVirtualMachines(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/virtualMachine')
-  Call<TypeCollection<VirtualMachine>> queryvirtualMachines(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<VirtualMachine>> queryVirtualMachines(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/virtualMachine')
   Call<VirtualMachine> createVirtualMachine(@Path('projectId') String projectId, @Body VirtualMachine virtualMachine)
@@ -2338,10 +2155,10 @@ interface ProjectApi {
   Call<VirtualMachineDisk> findVirtualMachineDiskById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/volume')
-  Call<TypeCollection<Volume>> listvolumes(@Path('projectId') String projectId)
+  Call<TypeCollection<Volume>> listVolumes(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/volume')
-  Call<TypeCollection<Volume>> queryvolumes(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<Volume>> queryVolumes(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/volume')
   Call<Volume> createVolume(@Path('projectId') String projectId, @Body Volume volume)
@@ -2386,10 +2203,10 @@ interface ProjectApi {
   Call<VolumeSnapshotInput> findVolumeSnapshotInputById(@Path('projectId') String projectId, @Path('id') String id)
 
   @GET('v2-beta/projects/{projectId}/volumeTemplate')
-  Call<TypeCollection<VolumeTemplate>> listvolumeTemplates(@Path('projectId') String projectId)
+  Call<TypeCollection<VolumeTemplate>> listVolumeTemplates(@Path('projectId') String projectId)
 
   @GET('v2-beta/projects/{projectId}/volumeTemplate')
-  Call<TypeCollection<VolumeTemplate>> queryvolumeTemplates(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
+  Call<TypeCollection<VolumeTemplate>> queryVolumeTemplates(@Path('projectId') String projectId, @QueryMap Map<String, String> filters)
 
   @POST('v2-beta/projects/{projectId}/volumeTemplate')
   Call<VolumeTemplate> createVolumeTemplate(@Path('projectId') String projectId, @Body VolumeTemplate volumeTemplate)
@@ -2408,5 +2225,4 @@ interface ProjectApi {
 
   @POST('v2-beta/projects/{projectId}/volumeTemplate/{id}?action=deactivate')
   Call<VolumeTemplate> deactivateVolumeTemplate(@Path('projectId') String projectId, @Path('id') String id)
-
 }

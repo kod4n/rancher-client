@@ -41,5 +41,4 @@ interface UserPreferenceApi {
 
   @POST('v2-beta/userPreferences/{id}?action=deactivate')
   Call<UserPreference> deactivate(@Path('id') String id)
-
 }

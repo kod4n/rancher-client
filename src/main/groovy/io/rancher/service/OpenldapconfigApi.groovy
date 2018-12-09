@@ -4,7 +4,6 @@ import io.rancher.base.TypeCollection
 import io.rancher.type.Openldapconfig
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
@@ -26,5 +25,4 @@ interface OpenldapconfigApi {
 
   @PUT('v2-beta/openldapconfigs/{id}')
   Call<Openldapconfig> update(@Path('id') String id, @Body Openldapconfig openldapconfig)
-
 }

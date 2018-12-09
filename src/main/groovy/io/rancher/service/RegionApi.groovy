@@ -41,5 +41,4 @@ interface RegionApi {
 
   @POST('v2-beta/regions/{id}?action=deactivate')
   Call<Region> deactivate(@Path('id') String id)
-
 }

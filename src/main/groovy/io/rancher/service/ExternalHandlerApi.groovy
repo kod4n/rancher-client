@@ -4,7 +4,6 @@ import io.rancher.base.TypeCollection
 import io.rancher.type.ExternalHandler
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
@@ -38,5 +37,4 @@ interface ExternalHandlerApi {
 
   @POST('v2-beta/externalHandlers/{id}?action=deactivate')
   Call<ExternalHandler> deactivate(@Path('id') String id)
-
 }
