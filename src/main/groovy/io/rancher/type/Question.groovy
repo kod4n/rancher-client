@@ -5,7 +5,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class Question implements RancherType {
+class Question extends RancherType {
   @JsonProperty('default')
   String defaultValue
   String description

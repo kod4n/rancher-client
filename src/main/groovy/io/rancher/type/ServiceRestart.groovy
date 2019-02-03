@@ -4,6 +4,6 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class ServiceRestart implements RancherType {
+class ServiceRestart extends RancherType {
   RollingRestartStrategy rollingRestartStrategy
 }

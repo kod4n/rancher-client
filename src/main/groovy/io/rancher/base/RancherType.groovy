@@ -1,6 +1,5 @@
 package io.rancher.base
 
-@RancherModel
-trait RancherType {
+abstract class RancherType {
   String id
 }

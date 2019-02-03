@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class LoadBalancerService implements RancherType {
+class LoadBalancerService extends RancherType {
   String accountId
   Boolean assignServiceIpAddress
   String created

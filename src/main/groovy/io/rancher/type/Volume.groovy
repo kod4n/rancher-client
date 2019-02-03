@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class Volume implements RancherType {
+class Volume extends RancherType {
   String accessMode
   String accountId
   String created

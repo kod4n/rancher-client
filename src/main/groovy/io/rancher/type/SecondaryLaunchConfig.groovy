@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class SecondaryLaunchConfig implements RancherType {
+class SecondaryLaunchConfig extends RancherType {
   String accountId
   String agentId
   String allocationState

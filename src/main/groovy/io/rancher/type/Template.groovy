@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class Template implements RancherType {
+class Template extends RancherType {
   Map<String, Object> actions
   String catalogId
   List<String> categories

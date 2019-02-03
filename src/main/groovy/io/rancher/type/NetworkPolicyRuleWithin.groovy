@@ -4,5 +4,5 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class NetworkPolicyRuleWithin implements RancherType {
+class NetworkPolicyRuleWithin extends RancherType {
 }

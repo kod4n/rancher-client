@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class ComposeService implements RancherType {
+class ComposeService extends RancherType {
   String accountId
   String created
   BigInteger currentScale

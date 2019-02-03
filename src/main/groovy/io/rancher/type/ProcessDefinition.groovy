@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class ProcessDefinition implements RancherType {
+class ProcessDefinition extends RancherType {
   Boolean extensionBased
   String name
   ExtensionPoint postProcessListeners

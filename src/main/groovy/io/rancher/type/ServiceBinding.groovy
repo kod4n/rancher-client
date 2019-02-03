@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class ServiceBinding implements RancherType {
+class ServiceBinding extends RancherType {
   Map<String, Object> labels
   List<String> ports
 }

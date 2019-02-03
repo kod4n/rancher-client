@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class ProcessPool implements RancherType {
+class ProcessPool extends RancherType {
   BigInteger activeTasks
   BigInteger completedTasks
   BigInteger maxPoolSize

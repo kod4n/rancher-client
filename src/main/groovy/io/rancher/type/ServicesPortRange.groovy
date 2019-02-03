@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class ServicesPortRange implements RancherType {
+class ServicesPortRange extends RancherType {
   BigInteger endPort
   BigInteger startPort
 }

@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class ScalePolicy implements RancherType {
+class ScalePolicy extends RancherType {
   BigInteger increment
   BigInteger max
   BigInteger min

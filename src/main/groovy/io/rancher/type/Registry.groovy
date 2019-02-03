@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class Registry implements RancherType {
+class Registry extends RancherType {
   String accountId
   String blockDevicePath
   String created

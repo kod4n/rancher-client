@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class Container implements RancherType {
+class Container extends RancherType {
   String accountId
   String agentId
   String allocationState

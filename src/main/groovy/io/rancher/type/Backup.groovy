@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class Backup implements RancherType {
+class Backup extends RancherType {
   String accountId
   String backupTargetId
   String created

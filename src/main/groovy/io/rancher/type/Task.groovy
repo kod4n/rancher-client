@@ -4,6 +4,6 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class Task implements RancherType {
+class Task extends RancherType {
   String name
 }

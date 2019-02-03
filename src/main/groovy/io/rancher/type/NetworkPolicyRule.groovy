@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class NetworkPolicyRule implements RancherType {
+class NetworkPolicyRule extends RancherType {
   String action
   NetworkPolicyRuleBetween between
   NetworkPolicyRuleMember from

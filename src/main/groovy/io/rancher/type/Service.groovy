@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class Service implements RancherType {
+class Service extends RancherType {
   String accountId
   BigInteger createIndex
   String created

@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class ServiceLink implements RancherType {
+class ServiceLink extends RancherType {
   String name
   String service
   String serviceId

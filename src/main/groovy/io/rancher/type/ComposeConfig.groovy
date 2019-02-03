@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class ComposeConfig implements RancherType {
+class ComposeConfig extends RancherType {
   String dockerComposeConfig
   String rancherComposeConfig
 }

@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class AzureConfig implements RancherType {
+class AzureConfig extends RancherType {
   String availabilitySet
   String clientId
   String clientSecret

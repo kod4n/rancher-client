@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class RestartPolicy implements RancherType {
+class RestartPolicy extends RancherType {
   BigInteger maximumRetryCount
   String name
 }

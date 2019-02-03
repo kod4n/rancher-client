@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class Databasechangeloglock implements RancherType {
+class Databasechangeloglock extends RancherType {
   Boolean locked
   String lockedby
   String lockgranted

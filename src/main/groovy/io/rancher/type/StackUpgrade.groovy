@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class StackUpgrade implements RancherType {
+class StackUpgrade extends RancherType {
   String dockerCompose
   String rancherCompose
   String externalId

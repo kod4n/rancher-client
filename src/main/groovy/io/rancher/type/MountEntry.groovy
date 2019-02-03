@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class MountEntry implements RancherType {
+class MountEntry extends RancherType {
   String instanceId
   String instanceName
   String path

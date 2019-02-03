@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class ComposeProject implements RancherType {
+class ComposeProject extends RancherType {
   String accountId
   Map<String, Object> answers
   Binding binding

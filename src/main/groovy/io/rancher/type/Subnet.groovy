@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class Subnet implements RancherType {
+class Subnet extends RancherType {
   String accountId
   BigInteger cidrSize
   String created

@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class TemplateVersion implements RancherType {
+class TemplateVersion extends RancherType {
   Map<String, Object> actions
   Map<String, Object> bindings
   Map<String, Object> files

@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class Certificate implements RancherType {
+class Certificate extends RancherType {
   String accountId
   String cert
   String certChain

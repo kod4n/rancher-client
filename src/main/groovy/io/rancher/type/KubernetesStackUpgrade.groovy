@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class KubernetesStackUpgrade implements RancherType {
+class KubernetesStackUpgrade extends RancherType {
   Map<String, Object> templates
   String externalId
   Map<String, Object> environment

@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class TaskInstance implements RancherType {
+class TaskInstance extends RancherType {
   String endTime
   String exception
   String name

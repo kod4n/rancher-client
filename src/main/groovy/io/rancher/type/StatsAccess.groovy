@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class StatsAccess implements RancherType {
+class StatsAccess extends RancherType {
   String token
   String url
 }

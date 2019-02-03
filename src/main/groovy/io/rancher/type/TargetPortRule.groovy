@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class TargetPortRule implements RancherType {
+class TargetPortRule extends RancherType {
   String backendName
   String hostname
   String path

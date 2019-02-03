@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class ServiceConsumeMap implements RancherType {
+class ServiceConsumeMap extends RancherType {
   String accountId
   String consumedService
   String consumedServiceId

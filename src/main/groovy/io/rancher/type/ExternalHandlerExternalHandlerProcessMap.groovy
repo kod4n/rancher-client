@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class ExternalHandlerExternalHandlerProcessMap implements RancherType {
+class ExternalHandlerExternalHandlerProcessMap extends RancherType {
   String created
   Map<String, Object> data
   String description

@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class Catalog implements RancherType {
+class Catalog extends RancherType {
   Map<String, Object> actions
   String branch
   String commit

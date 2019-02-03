@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class InServiceUpgradeStrategy implements RancherType {
+class InServiceUpgradeStrategy extends RancherType {
   BigInteger batchSize
   BigInteger intervalMillis
   LaunchConfig launchConfig

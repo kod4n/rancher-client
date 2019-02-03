@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class BlkioDeviceOption implements RancherType {
+class BlkioDeviceOption extends RancherType {
   BigInteger readBps
   BigInteger readIops
   BigInteger weight

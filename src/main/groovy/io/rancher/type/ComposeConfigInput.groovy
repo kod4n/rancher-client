@@ -4,6 +4,6 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class ComposeConfigInput implements RancherType {
+class ComposeConfigInput extends RancherType {
   List<String> serviceIds
 }

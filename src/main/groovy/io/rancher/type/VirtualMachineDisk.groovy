@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class VirtualMachineDisk implements RancherType {
+class VirtualMachineDisk extends RancherType {
   String driver
   String name
   Map<String, Object> opts

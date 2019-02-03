@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class ExternalHandlerProcessConfig implements RancherType {
+class ExternalHandlerProcessConfig extends RancherType {
   String name
   String onError
 }

@@ -4,7 +4,7 @@ import io.rancher.base.RancherModel
 import io.rancher.base.RancherType
 
 @RancherModel
-class StorageDriverService implements RancherType {
+class StorageDriverService extends RancherType {
   String accountId
   Boolean assignServiceIpAddress
   BigInteger createIndex
