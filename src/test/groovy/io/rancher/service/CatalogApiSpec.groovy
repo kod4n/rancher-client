@@ -1,6 +1,7 @@
 package io.rancher.service
 
 import groovy.util.logging.Slf4j
+import spock.lang.Shared
 
 import static org.hamcrest.Matchers.allOf
 import static org.hamcrest.Matchers.equalTo
@@ -13,10 +14,10 @@ import static spock.util.matcher.HamcrestSupport.expect
 
 @Slf4j
 class CatalogApiSpec extends RancherSpec {
-  CatalogApi catalogApi
-  TemplateApi templateApi
+  @Shared CatalogApi catalogApi
+  @Shared TemplateApi templateApi
 
-  def setup() {
+  def setupSpec() {
     catalogApi = rancher.type CatalogApi
     templateApi = rancher.type TemplateApi
   }
